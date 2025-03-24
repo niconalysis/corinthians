@@ -14,11 +14,12 @@ VALUES
 
 SELECT
 	Nome,
+	a.ID_Jogador,
 	COUNT(*)
 FROM cartoes_amarelos AS a
 INNER JOIN jogadores AS j
 ON a.ID_Jogador = j.ID_Jogador
-GROUP BY Nome
-ORDER BY 2 DESC
+GROUP BY Nome, a.ID_Jogador
+ORDER BY 3 DESC
 
 select * from cartoes_amarelos where ID_Partida = 532021

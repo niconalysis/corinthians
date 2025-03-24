@@ -4,7 +4,14 @@ CREATE TABLE gols_corinthians(
 	FOREIGN KEY(ID_Jogador) REFERENCES jogadores (ID_Jogador)
 )
 
-select * from gols_corinthians
+SELECT 
+	Nome,
+	COUNT(g.ID_Jogador) AS Gols
+FROM gols_corinthians as g
+INNER JOIN jogadores as j
+ON g.ID_Jogador = j.ID_Jogador
+GROUP BY Nome
+ORDER BY 2 DESC
 
 INSERT INTO gols_corinthians
 VALUES
@@ -40,7 +47,3 @@ SELECT
 FROM mais1gol
 GROUP BY Nome
 ORDER BY 2 DESC
-
-
-UPDATE gols_corinthians
-SET ID_Partida = CONCAT(ID_Partida,2024)

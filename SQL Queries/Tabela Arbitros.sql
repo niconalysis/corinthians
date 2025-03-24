@@ -5,9 +5,6 @@ CREATE TABLE arbitros(
 )
 
 
-
-SELECT concat('"',nome_arbitro,'"',':',id_arbitro,',') FROM arbitros Where ID_arbitro > 52
-
 INSERT INTO arbitros
 VALUES
 (81,'Marielson Alves Silva')

@@ -30,10 +30,6 @@ CREATE TABLE escalacoes(
 )
 
 
-DELETE
-FROM escalacoes
-WHERE ID_Partida = 222021
-
 SELECT * FROM escalacoes
 WHERE ID_Partida = 222021
 
@@ -55,6 +51,3 @@ SELECT *
 FROM escalacoes AS e
 INNER JOIN jogadores AS j
 	ON e.ID_Jogador = j.ID_Jogador
-
-UPDATE escalacoes
-SET ID_Partida = CONCAT(ID_Partida,2024)

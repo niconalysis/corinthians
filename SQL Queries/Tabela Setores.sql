@@ -7,5 +7,3 @@ CREATE TABLE setor_campo(
 INSERT INTO setor_campo
 VALUES
 	(4,'Gol Contra')
-
-SELECT * FROM aux

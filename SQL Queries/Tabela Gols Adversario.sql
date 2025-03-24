@@ -3,9 +3,6 @@ CREATE TABLE gols_adversario(
 	Nome_Adversario VARCHAR(200),
 )
 
-UPDATE gols_adversario
-SET ID_Partida = CONCAT(ID_Partida,2024)
-
 INSERT INTO gols_adversario
 VALUES
 (172025, 'Tiquinho Soares')

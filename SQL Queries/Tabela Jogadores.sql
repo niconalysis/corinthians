@@ -24,11 +24,6 @@ UPDATE jogadores
 	SET imagem = 'https://img.a.transfermarkt.technology/portrait/big/489893-1720056861.jpg?lm=1'
 	WHERE ID_Jogador = 45
 	
-SELECT *  FROM jogadores
-
-SELECT
-	CONCAT('"',Nome,'"',':',ID_Jogador,',')
-FROM jogadores
 
 UPDATE jogadores
 SET Nome = 'José Martínez'

@@ -12,7 +12,3 @@ CREATE TABLE tecnicos_cor(
 INSERT INTO tecnicos_cor
 VALUES
 (14,'Vagner Mancini','24/10/1966','Ribeirão Preto','SP','Brasil','Imagem')
-
-SELECT concat('"',nome,'"',':',ID_Tecnico_Cor,',') FROM tecnicos_cor
-
-SELECT * FROM tecnicos_cor

@@ -3,13 +3,13 @@ CREATE TABLE assistencias_cor(
 	ID_Jogador INT,
 )
 
-
-
 INSERT INTO assistencias_cor
 VALUES
 (182025,'34'),
 (182025,'9')
 
+INSERT INTO assistencias_cor
+VALUES
 (12021,'95'),
 (32021,'97'),
 (52021,'90'),

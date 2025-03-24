@@ -19,5 +19,3 @@ UPDATE estadios
 SET Latitude = '-16,67086',
 Longitude = '-49,26256'
 WHERE ID_Estadio = 59
-
-SELECT concat('"',Nome_Estadio,'"',':',ID_Estadio,',') FROM estadios WHERE ID_Estadio > 45 ORDER BY ID_Estadio

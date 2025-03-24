@@ -13,9 +13,6 @@ INSERT INTO tecnicos
 VALUES
 (141,'Segundo Castillo','15/05/1982','San Lorenzo','','Equador','Imagem')
 
-SELECT concat('"',nome,'"',':',ID_Tecnico,',') FROM tecnicos WHERE ID_Tecnico > 80
-
-SELECT * FROM tecnicos WHERE  Cidade_Nasc = 'Cidade'
 SELECT * FROM tecnicos WHERE Nome LIKE '%iago%'
 
 UPDATE tecnicos

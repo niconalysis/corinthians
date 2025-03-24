@@ -8,5 +8,5 @@ O resultado final destes dados foi consolidado em um dashboard criado no Power B
 https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3MDNjNjZlIiwidCI6Ijc0ZDI2NTU1LTE3MjgtNDcwNy1iNDk4LTYyYmQ2ZTdlYjQ1NiJ9
 
 Para qualquer dúvida, sugestão ou contato:
-email: nicolas.emerenciano@gmail.com
-linkedin: www.linkedin.com/in/nico-data
+- email: nicolas.emerenciano@gmail.com
+- linkedin: www.linkedin.com/in/nico-data

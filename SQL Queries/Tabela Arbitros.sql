@@ -1,0 +1,17 @@
+CREATE TABLE arbitros(
+	ID_Arbitro INT UNIQUE NOT NULL,
+	Nome_Arbitro VARCHAR(200),
+	PRIMARY KEY(ID_Arbitro)
+)
+
+
+
+SELECT concat('"',nome_arbitro,'"',':',id_arbitro,',') FROM arbitros Where ID_arbitro > 52
+
+INSERT INTO arbitros
+VALUES
+(81,'Marielson Alves Silva')
+
+SELECT *
+FROM arbitros
+WHERE Nome_Arbitro LIKE '%nio%'

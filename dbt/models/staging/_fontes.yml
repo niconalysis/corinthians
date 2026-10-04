@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: bruto
+    database: corinthians-dados
+    tables:
+      - name: espn_partidas
+        description: JSON cru de cada partida, uma linha por coleta (append-only).

@@ -67,6 +67,14 @@ seeds:
         data_tests:
           - unique
           - relationships: {arguments: {to: ref('gols'), field: id_gol}}
+  - name: gols_descartados
+    description: Lançamentos de gol da ESPN que não aconteceram (o placar da própria ESPN mostra), com o motivo de cada um.
+    config:
+      column_types: {id_gol: string}
+    columns:
+      - name: id_gol
+        data_tests:
+          - unique
   - name: divergencias_resolvidas
     description: Divergências legado x ESPN já tratadas, com a decisão e quem decidiu. Evita que sessões futuras pesquisem de novo.
     config:

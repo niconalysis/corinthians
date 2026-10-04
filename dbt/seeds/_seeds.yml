@@ -62,3 +62,12 @@ seeds:
         data_tests:
           - unique
           - relationships: {arguments: {to: ref('gols'), field: id_gol}}
+  - name: divergencias_resolvidas
+    description: Divergências legado x ESPN já tratadas, com a decisão e quem decidiu. Evita que sessões futuras pesquisem de novo.
+    config:
+      column_types: {id_partida: string}
+    columns:
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments: {values: [resolvida, aceita]}

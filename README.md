@@ -30,6 +30,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 
 - [`CONTEXT.md`](CONTEXT.md): glossário do domínio (o que é uma Partida, Escalação, Gol contra etc.)
 - [`docs/adr/`](docs/adr/): registro das decisões de arquitetura e do porquê de cada uma
+- [`docs/HISTORICO.md`](docs/HISTORICO.md): registro completo de tudo o que foi discutido, testado e descartado
 - [`.claude/skills/resolver-pendencias/`](.claude/skills/resolver-pendencias/SKILL.md): como os agentes de IA resolvem dados faltantes, sempre via PR
 
 ## Contato

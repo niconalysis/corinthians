@@ -1,5 +1,7 @@
 -- Onde a base legada e a ESPN discordam, partida a partida, nas partidas que existem nas duas com detalhe.
--- Nas tabelas finais vale a ESPN; esta tabela existe para revisão e transparência.
+-- Nas tabelas finais vale a ESPN (Q28); esta tabela existe para revisão e transparência.
+-- A coluna `status` diz o que já foi decidido: NADA AQUI É PENDÊNCIA. Não pesquisar por conta própria;
+-- pendências de verdade estão em auditoria.pendencias.
 with casadas as (
     select l.*, e.id_estadio as id_estadio_espn, e.arbitro as arbitro_espn
     from {{ ref('stg_legado__partidas') }} l
@@ -81,8 +83,17 @@ todas as (
     union all select * from eventos_agrupados
 )
 
-select p.data, a.adversario, t.tipo, t.legado as so_no_legado, t.espn as so_na_espn, t.id_partida
+select
+    p.data,
+    a.adversario,
+    t.tipo,
+    t.legado as so_no_legado,
+    t.espn as so_na_espn,
+    coalesce(r.status, 'aceita') as status,
+    coalesce(r.decisao, 'Vale a ESPN (Q28); o legado completa só o que falta.') as decisao,
+    t.id_partida
 from todas t
 join {{ ref('partidas') }} p using (id_partida)
 join {{ ref('adversarios') }} a using (id_adversario)
+left join {{ ref('divergencias_resolvidas') }} r on r.id_partida = t.id_partida and r.tipo = t.tipo
 order by p.data, t.tipo

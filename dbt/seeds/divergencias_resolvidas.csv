@@ -1,0 +1,9 @@
+id_partida,tipo,status,decisao
+724152,estadio,resolvida,"Jogo no Jorge Ismael de Biasi com o Novorizontino mandante: a ESPN está certa. Confirmado por Nico (Q29)."
+569922,estadio,resolvida,"Jogo na Serrinha (Hailé Pinheiro): a ESPN está certa. Confirmado por Nico (Q29)."
+631054,estadio,resolvida,"Jogo no Antônio Accioly: o legado está certo. Confirmado por Nico (Q29); corrigido em correcoes_partidas.csv."
+698244,gol,resolvida,"Gol aos 2' é do Wesley, não gol contra: o legado está certo. Confirmado por Nico (Q29); corrigido em correcoes_gols.csv."
+699476,escalacao,resolvida,"A ESPN omitiu um titular (Gustavo Silva); o legado completa automaticamente em marts.escalacoes."
+630825,arbitro,aceita,"Fontes empatadas sobre o árbitro. Vale a ESPN (Q28)."
+716803,arbitro,aceita,"Fontes empatadas sobre o árbitro. Vale a ESPN (Q28)."
+598329,vermelho,aceita,"Cartão registrado só pela ESPN. Vale a ESPN (Q28)."

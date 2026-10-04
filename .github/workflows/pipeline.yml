@@ -55,6 +55,10 @@ jobs:
         continue-on-error: true  # se falhar, o painel da página 1 ainda é publicado
         run: python pipeline/exporta_jogadores.py
 
+      - name: Exporta os dados do histórico de confrontos
+        continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
+        run: python pipeline/exporta_confrontos.py
+
       - name: Prepara o site para publicar
         uses: actions/upload-pages-artifact@v4
         with:

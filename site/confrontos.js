@@ -146,15 +146,40 @@ function ficha() {
 
     <section class="bloco">
       <h3>${verTodos ? "Todos os jogos" : "Jogos mais recentes"}</h3>
-      <div class="todos">${lista.map((j) => `<div class="jogo">
+      <div class="todos">${lista.map((j) => `<button type="button" class="jogo" data-id="${esc(j.id)}" aria-label="Abrir resumo do jogo de ${dataBR(j.d)}: ${j.f} a ${j.c}">
         <span class="dt">${dataBR(j.d)}</span>
         <span class="meio"><b>${esc(j.comp || "")}${j.casa === true ? '<span class="mando-tag">Casa</span>' : j.casa === false ? '<span class="mando-tag">Fora</span>' : ""}</b><small>${esc(j.est || "")}</small></span>
         <span class="pl"><span>${j.f} x ${j.c}</span><i class="r${j.r.toLowerCase()}">${j.r}</i></span>
-      </div>`).join("")}</div>
+      </button>`).join("")}</div>
       ${a.jogos.length > 10 ? `<button type="button" class="link" id="mais">${verTodos ? "Mostrar só os mais recentes" : `Ver todos os ${a.jogos.length} jogos`}</button>` : ""}
     </section>
   </div>`;
   $("#mais")?.addEventListener("click", () => { verTodos = !verTodos; ficha(); });
+  $(".todos")?.addEventListener("click", (e) => {
+    const b = e.target.closest(".jogo[data-id]");
+    if (b) abreJogo(a, b);
+  });
+}
+
+// Abre o painel do jogo (o mesmo da página 1). O painel quer os campos de partidas.json; se o jogo não estiver lá
+// (ou o arquivo não carregar), monta a partir do que esta página já tem.
+let partidasPorId = null;
+async function abreJogo(a, botao) {
+  const j = a.jogos.find((x) => x.id === botao.dataset.id);
+  if (!j) return;
+  if (!partidasPorId) {
+    try {
+      const dados = await (await fetch("dados/partidas.json")).json();
+      partidasPorId = new Map(dados.partidas.map((p) => [p.id_partida, p]));
+    } catch {
+      partidasPorId = new Map();
+    }
+  }
+  const p = partidasPorId.get(j.id) || {
+    id_partida: j.id, data: j.d, competicao: j.comp, corinthians_mandante: j.casa, adversario: a.nome, escudo_url: a.escudo_url,
+    gols_corinthians: j.f, gols_adversario: j.c, resultado: j.r, estadio: j.est,
+  };
+  PainelJogo.abre(p, botao);
 }
 
 function escolhe(id) {

@@ -14,7 +14,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 | Etapa | Status |
 |---|---|
 | 0. Organização do repositório e do legado | ✅ |
-| 1. Projeto no Google Cloud / BigQuery | ⏳ |
+| 1. Projeto no Google Cloud / BigQuery | ✅ |
 | 2. Carga da base legada no BigQuery | ⏳ |
 | 3. Extração automática (ESPN) | ⏳ |
 | 4. Modelagem e testes com dbt | ⏳ |

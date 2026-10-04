@@ -1,5 +1,7 @@
 -- Onde a base legada e a ESPN discordam, partida a partida, nas partidas que existem nas duas com detalhe.
 -- Nas tabelas finais vale a ESPN (Q28); esta tabela existe para revisão e transparência.
+-- Compara o legado com o resultado FINAL (já com correcoes_partidas e correcoes_gols aplicadas):
+-- o que já foi corrigido à mão deixa de aparecer como divergência.
 -- A coluna `status` diz o que já foi decidido: NADA AQUI É PENDÊNCIA. Não pesquisar por conta própria;
 -- pendências de verdade estão em auditoria.pendencias.
 with casadas as (
@@ -21,17 +23,17 @@ placar as (
 estadio as (
     select c.id_partida, 'estadio', el.estadio, ee.estadio
     from casadas c
-    join {{ ref('de_para_estadios') }} d on d.id_estadio_espn = c.id_estadio_espn
+    join {{ ref('partidas') }} p using (id_partida)
     join {{ ref('cadastro_estadios') }} el on el.id_estadio = c.id_estadio
-    join {{ ref('cadastro_estadios') }} ee on ee.id_estadio = d.id_estadio
-    where c.id_estadio != d.id_estadio
+    join {{ ref('cadastro_estadios') }} ee on ee.id_estadio = p.id_estadio
+    where c.id_estadio != p.id_estadio
 ),
 
 arbitro as (
-    select c.id_partida, 'arbitro', c.arbitro, coalesce(d.arbitro, c.arbitro_espn)
+    select c.id_partida, 'arbitro', c.arbitro, p.arbitro
     from casadas c
-    left join {{ ref('de_para_arbitros') }} d on d.arbitro_espn = c.arbitro_espn
-    where c.arbitro_espn is not null and c.arbitro != coalesce(d.arbitro, c.arbitro_espn)
+    join {{ ref('partidas') }} p using (id_partida)
+    where c.arbitro_espn is not null and c.arbitro != p.arbitro
 ),
 
 -- Mesma lógica para escalação, gols, assistências e cartões: quem aparece só de um lado.
@@ -45,7 +47,7 @@ eventos_legado as (
 eventos_espn as (
     select id_partida, 'escalacao' as tipo, id_jogador, count(*) as n from {{ ref('escalacoes') }} where origem = 'espn' group by 1, 3
     union all
-    select id_partida, 'gol', id_jogador, count(*) from {{ ref('gols') }} where autor_do_corinthians and not gol_contra and origem = 'espn' group by 1, 3
+    select id_partida, 'gol', id_jogador, count(*) from {{ ref('gols') }} where autor_do_corinthians and not gol_contra and origem in ('espn', 'correcao') group by 1, 3
     union all
     select id_partida, 'assistencia', id_jogador, count(*) from {{ ref('assistencias') }} where origem = 'espn' group by 1, 3
     union all

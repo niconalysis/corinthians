@@ -19,15 +19,21 @@ SEED = pathlib.Path(__file__).resolve().parent.parent / "dbt" / "seeds" / "cadas
 FOTO_ESPN = "https://a.espncdn.com/i/headshots/soccer/players/full/{id}.png"
 UA = "corinthians-dados/1.0 (github.com/niconalysis/corinthians)"
 META = 0.90
+ESCUDO_ESPN = "https://a.espncdn.com/i/teamlogos/soccer/500/{id}.png"
+TIMES_TESTE = {"Corinthians": 874, "Palmeiras": 2029, "Flamengo": 819, "São Paulo": 2026, "Santos": 2674}
 
 
-def tem_foto(id_jogador):
-    req = urllib.request.Request(FOTO_ESPN.format(id=id_jogador), method="HEAD", headers={"User-Agent": UA})
+def tem_imagem(url):
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
             return r.status == 200 and r.headers.get("Content-Type", "").startswith("image/")
     except urllib.error.HTTPError:
         return False
+
+
+def tem_foto(id_jogador):
+    return tem_imagem(FOTO_ESPN.format(id=id_jogador))
 
 
 def main():
@@ -49,6 +55,7 @@ def main():
         f"Meta de {META:.0%}: {'atingida, usar só a ESPN' if pct >= META else 'não atingida, usar ESPN e completar com Transfermarkt'}",
         "Sem foto na ESPN: " + ", ".join(f"{j['nome']} ({j['id_jogador']})" for j in sem),
         "IDS_COM_FOTO_ESPN=" + json.dumps(sorted(j["id_jogador"] for j in com)),
+        "Escudos ESPN (teste): " + ", ".join(f"{nome}={'ok' if tem_imagem(ESCUDO_ESPN.format(id=i)) else 'falhou'}" for nome, i in TIMES_TESTE.items()),
     ]
     print("\n".join(linhas))
 

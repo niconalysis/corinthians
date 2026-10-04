@@ -288,9 +288,10 @@ function selosDoJogador(nome, d) {
 function htmlPainel(p, d) {
   const casa = ehCasa(p) || p.corinthians_mandante == null;
   const nomeCor = "Corinthians";
+  const escudoCor = "https://a.espncdn.com/i/teamlogos/soccer/500/874.png";
   const lado = (nome, escudoUrl) => `<div class="pj-time">${imagem(escudoUrl, nome)}<span>${esc(nome)}</span></div>`;
-  const esq = casa ? lado(nomeCor, null) : lado(p.adversario, p.escudo_url);
-  const dir = casa ? lado(p.adversario, p.escudo_url) : lado(nomeCor, null);
+  const esq = casa ? lado(nomeCor, escudoCor) : lado(p.adversario, p.escudo_url);
+  const dir = casa ? lado(p.adversario, p.escudo_url) : lado(nomeCor, escudoCor);
   const placar = casa ? `${p.gols_corinthians} x ${p.gols_adversario}` : `${p.gols_adversario} x ${p.gols_corinthians}`;
   const meta = [fmtData(p.data), p.competicao, p.estadio, p.publico != null ? `${fmtNum(p.publico)} torcedores` : null].filter(Boolean).map(esc).join(" · ");
 

@@ -17,6 +17,12 @@ PASTA = pathlib.Path(__file__).resolve().parent.parent / "site" / "dados"
 SAIDA = PASTA / "partidas.json"
 SAIDA_DETALHES = PASTA / "detalhes.json"
 
+# Imagens: escudo do time pelo id da ESPN; foto do jogador na ESPN quando existe (medido por pipeline/confere_fotos.py:
+# só 5 de 131 jogadores), senão a do legado (Transfermarkt). Se a imagem falhar no navegador, o site mostra as iniciais.
+ESCUDO_ESPN = "https://a.espncdn.com/i/teamlogos/soccer/500/{id}.png"
+FOTO_ESPN = "https://a.espncdn.com/i/headshots/soccer/players/full/{id}.png"
+JOGADORES_COM_FOTO_ESPN = {"144324", "194090", "276615", "287014", "288930"}
+
 CONSULTA = """
 select
     p.id_partida,
@@ -24,14 +30,17 @@ select
     p.temporada,
     p.competicao,
     p.corinthians_mandante,
+    p.id_adversario,
     a.adversario,
     p.gols_corinthians,
     p.gols_adversario,
     p.resultado,
     e.estadio,
     p.publico,
-    p.tecnico_corinthians as tecnico
+    p.tecnico_corinthians as tecnico,
+    t.foto_url as tecnico_foto_url
 from `corinthians-dados.marts.partidas` p
+left join `corinthians-dados.staging.cadastro_tecnicos` t on t.tecnico = p.tecnico_corinthians
 left join `corinthians-dados.marts.adversarios` a using (id_adversario)
 left join `corinthians-dados.marts.estadios` e using (id_estadio)
 order by p.data, p.numero_no_ano
@@ -64,6 +73,8 @@ order by c.id_partida, c.minuto
 ESCALACOES = """
 select
     e.id_partida,
+    e.id_jogador,
+    j.imagem_url as foto_legado,
     j.nome,
     j.posicao as pos,
     coalesce(e.titular, false) as titular,
@@ -82,6 +93,9 @@ def valor(v):
 def main():
     bq = bigquery.Client(project=PROJETO)
     partidas = [{k: valor(v) for k, v in dict(linha).items()} for linha in bq.query(CONSULTA).result()]
+    for p in partidas:
+        id_adversario = str(p.pop("id_adversario") or "")
+        p["escudo_url"] = ESCUDO_ESPN.format(id=id_adversario) if id_adversario.isdigit() else None
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     conteudo = {"gerado_em": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "partidas": partidas}
     SAIDA.write_text(json.dumps(conteudo, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -92,6 +106,10 @@ def main():
     for chave, consulta in (("gols", GOLS), ("cartoes", CARTOES), ("escalacao", ESCALACOES)):
         for linha in bq.query(consulta).result():
             item = {k: valor(v) for k, v in dict(linha).items()}
+            if chave == "escalacao":
+                id_jogador = str(item.pop("id_jogador"))
+                legado = item.pop("foto_legado")
+                item["foto_url"] = FOTO_ESPN.format(id=id_jogador) if id_jogador in JOGADORES_COM_FOTO_ESPN else legado
             destino = jogos.get(item.pop("id_partida"))
             if destino is not None:
                 destino[chave].append(item)

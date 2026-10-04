@@ -3,6 +3,11 @@ version: 2
 seeds:
   - name: competicoes
     description: Nome em português de cada competição da ESPN.
+  - name: cadastro_tecnicos
+    description: Foto de cada técnico do Corinthians, editável. Base nas fotos do legado; os demais entram aos poucos por CSV.
+    columns:
+      - name: tecnico
+        data_tests: [unique, not_null]
   - name: cadastro_estadios
     description: Estádios únicos com coordenadas, editável. Base no legado (com sinais corrigidos) mais estádios novos geocodificados no OpenStreetMap.
     config:

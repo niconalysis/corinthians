@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corinthians em Números</title>
+  <meta name="description" content="Todas as partidas do Corinthians desde 2020: resultados, gols e desempenho por temporada e por técnico.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23d01c22%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <a class="pular" href="#jogos">Ir para a lista de jogos</a>
+
+  <header class="topo">
+    <div class="topo-titulo">
+      <h1>Corinthians em Números</h1>
+      <p id="subtitulo">Todas as partidas desde 2020</p>
+    </div>
+
+    <form class="filtros" aria-label="Filtros" onsubmit="return false">
+      <label>Temporada
+        <select id="f-temporada"><option value="">Todas as temporadas</option></select>
+      </label>
+      <label>Técnico
+        <select id="f-tecnico"><option value="">Todos os técnicos</option></select>
+      </label>
+      <button type="button" id="limpar">Limpar filtros</button>
+    </form>
+  </header>
+
+  <div id="aviso-exemplo" class="aviso" hidden>
+    Dados de exemplo, inventados só para testar o visual. Os números reais entram quando o site for ligado ao banco.
+  </div>
+
+  <main>
+    <section class="bloco" id="mosaico-bloco" aria-labelledby="t-mosaico">
+      <span class="etiqueta">A</span>
+      <h2 id="t-mosaico">Cada jogo, um quadradinho</h2>
+      <p class="dica">Branco é vitória, cinza é empate, vermelho é derrota. Passe o mouse ou toque para ver o jogo.</p>
+      <div id="mosaico" class="mosaico"></div>
+      <ul class="legenda" aria-hidden="true">
+        <li><i class="q v"></i>Vitória</li><li><i class="q e"></i>Empate</li><li><i class="q d"></i>Derrota</li>
+      </ul>
+    </section>
+
+    <section class="bloco" id="numeros-bloco" aria-labelledby="t-numeros">
+      <span class="etiqueta">B</span>
+      <h2 id="t-numeros">Resumo do que você escolheu</h2>
+      <dl id="kpis" class="kpis"></dl>
+    </section>
+
+    <div class="duas-colunas">
+      <section class="bloco" id="temporadas-bloco" aria-labelledby="t-temporadas">
+        <span class="etiqueta">C</span>
+        <h2 id="t-temporadas">Resultados por temporada</h2>
+        <div id="temporadas"></div>
+      </section>
+
+      <section class="bloco" id="casa-fora-bloco" aria-labelledby="t-casafora">
+        <span class="etiqueta">D</span>
+        <h2 id="t-casafora">Em casa e fora</h2>
+        <div id="casa-fora"></div>
+      </section>
+    </div>
+
+    <section class="bloco" id="jogos" aria-labelledby="t-jogos">
+      <span class="etiqueta">E</span>
+      <h2 id="t-jogos">Todos os jogos</h2>
+      <div class="tabela-rolagem">
+        <table>
+          <thead><tr><th>Data</th><th>Adversário</th><th class="num">Placar</th><th>Competição</th><th>Técnico</th></tr></thead>
+          <tbody id="lista"></tbody>
+        </table>
+      </div>
+      <button type="button" id="mais" class="mais" hidden>Mostrar mais jogos</button>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <span id="atualizado"></span>
+    <button type="button" id="revisao" aria-pressed="false">Mostrar etiquetas dos blocos</button>
+  </footer>
+
+  <div id="dica-jogo" class="dica-jogo" role="tooltip" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

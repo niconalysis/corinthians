@@ -1,0 +1,130 @@
+:root {
+  --preto: #0a0a0b;
+  --grafite: #151517;
+  --linha: #2a2a2e;
+  --branco: #f4f3f0;
+  --cinza: #8d8d93;
+  --vermelho: #d01c22;
+  --vitoria: #f4f3f0;
+  --empate: #5c5c63;
+  --derrota: #d01c22;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --texto: "Barlow", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--preto);
+  color: var(--branco);
+  font: 400 1rem/1.5 var(--texto);
+}
+
+:focus-visible { outline: 2px solid var(--branco); outline-offset: 3px; }
+.pular { position: absolute; left: -999px; }
+.pular:focus { left: 16px; top: 16px; background: var(--branco); color: var(--preto); padding: 8px 12px; z-index: 10; }
+
+/* topo */
+.topo {
+  display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: end; justify-content: space-between;
+  padding: 40px 24px 28px; max-width: 1200px; margin: 0 auto;
+  border-bottom: 4px solid var(--vermelho);
+}
+h1 { font: 800 clamp(2.4rem, 7vw, 4.6rem)/0.95 var(--display); margin: 0; letter-spacing: 0.01em; text-transform: uppercase; }
+.topo-titulo p { margin: 8px 0 0; color: var(--cinza); }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.filtros label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--cinza); }
+select, button { font: inherit; }
+select {
+  min-width: 190px; padding: 10px 12px; color: var(--branco);
+  background: var(--grafite); border: 1px solid var(--linha); border-radius: 6px;
+}
+#limpar {
+  padding: 10px 14px; color: var(--branco); background: none; border: 1px solid var(--linha); border-radius: 6px; cursor: pointer;
+}
+#limpar:hover { border-color: var(--branco); }
+
+.aviso { max-width: 1200px; margin: 16px auto 0; padding: 10px 24px; color: var(--branco); background: #3a1416; border-left: 4px solid var(--vermelho); }
+
+/* blocos */
+main { max-width: 1200px; margin: 0 auto; padding: 0 24px 48px; }
+.bloco { position: relative; padding: 36px 0; border-bottom: 1px solid var(--linha); }
+h2 { font: 700 1.75rem/1.1 var(--display); margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.02em; }
+.dica { margin: 0 0 20px; color: var(--cinza); }
+.duas-colunas { display: grid; gap: 0 48px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .duas-colunas { grid-template-columns: 3fr 2fr; } }
+
+.etiqueta {
+  display: none; position: absolute; top: 12px; right: 0; width: 28px; height: 28px; place-items: center;
+  font: 700 1rem var(--display); color: var(--preto); background: #ffd23f; border-radius: 50%;
+}
+.revisao .etiqueta { display: grid; }
+
+/* mosaico */
+.mosaico { display: grid; gap: 6px; }
+.m-linha { display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center; }
+.m-ano { font: 700 1.1rem var(--display); color: var(--cinza); }
+.m-ano.ativo { color: var(--branco); }
+.m-jogos { display: flex; flex-wrap: wrap; gap: 3px; }
+.q { display: block; width: 14px; height: 14px; border-radius: 2px; }
+.q.v { background: var(--vitoria); }
+.q.e { background: var(--empate); }
+.q.d { background: var(--derrota); }
+.m-jogos .q { cursor: default; transition: opacity 0.15s; }
+.m-jogos .q.fora { opacity: 0.12; }
+.m-jogos .q:hover { outline: 2px solid var(--branco); outline-offset: 1px; }
+@media (max-width: 600px) { .q { width: 11px; height: 11px; } .m-linha { grid-template-columns: 36px 1fr; } }
+
+.legenda { display: flex; gap: 20px; list-style: none; padding: 0; margin: 18px 0 0; color: var(--cinza); font-size: 0.9rem; }
+.legenda li { display: flex; align-items: center; gap: 8px; }
+
+.dica-jogo {
+  position: fixed; z-index: 5; max-width: 260px; padding: 10px 12px; pointer-events: none;
+  background: var(--branco); color: var(--preto); border-radius: 6px; font-size: 0.9rem; line-height: 1.35;
+}
+.dica-jogo b { font-family: var(--display); font-size: 1.15rem; letter-spacing: 0.02em; }
+
+/* números */
+.kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 20px 0 0; }
+@media (min-width: 700px) { .kpis { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .kpis { grid-template-columns: repeat(7, 1fr); } }
+.kpi { padding: 4px 16px 4px 0; margin-bottom: 16px; }
+.kpi dt { color: var(--cinza); font-size: 0.9rem; order: 2; }
+.kpi dd { margin: 0; font: 700 clamp(2rem, 4vw, 2.8rem)/1 var(--display); }
+.kpi { display: flex; flex-direction: column; }
+.kpi.v dd { color: var(--vitoria); }
+.kpi.d dd { color: var(--derrota); }
+
+/* barras de resultado */
+.barra-linha { display: grid; grid-template-columns: 44px 1fr 56px; gap: 10px; align-items: center; margin-bottom: 8px; }
+.barra-linha .rotulo { font: 700 1.1rem var(--display); color: var(--cinza); }
+.barra-linha.ativo .rotulo { color: var(--branco); }
+.barra { display: flex; height: 20px; border-radius: 3px; overflow: hidden; background: var(--grafite); }
+.barra span { display: block; height: 100%; }
+.barra .v { background: var(--vitoria); }
+.barra .e { background: var(--empate); }
+.barra .d { background: var(--derrota); }
+.barra-linha .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--cinza); font-size: 0.9rem; }
+.casa-fora .barra { height: 28px; }
+.nota { margin: 14px 0 0; color: var(--cinza); font-size: 0.875rem; }
+
+/* tabela */
+.tabela-rolagem { overflow-x: auto; margin-top: 16px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th { text-align: left; font-weight: 600; color: var(--cinza); font-size: 0.875rem; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--linha); }
+td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--linha); }
+.num { text-align: center; }
+td.placar { font: 700 1.2rem var(--display); text-align: center; white-space: nowrap; }
+td.placar::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; background: var(--empate); }
+tr.v td.placar::before { background: var(--vitoria); }
+tr.d td.placar::before { background: var(--derrota); }
+.mais { margin-top: 20px; padding: 11px 18px; color: var(--branco); background: var(--vermelho); border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.mais:hover { background: #e12a30; }
+.vazio { padding: 28px 0; color: var(--cinza); }
+
+.rodape { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 20px 24px 40px; color: var(--cinza); font-size: 0.875rem; }
+#revisao { color: var(--cinza); background: none; border: 1px solid var(--linha); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

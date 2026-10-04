@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23d01c22%27/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23f5f4f1%27/%3E%3C/svg%3E">
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -36,33 +36,32 @@
   </div>
 
   <main>
-    <section class="bloco" id="mosaico-bloco" aria-labelledby="t-mosaico">
+    <section class="bloco" id="numeros-bloco" aria-labelledby="t-numeros">
       <span class="etiqueta">A</span>
-      <h2 id="t-mosaico">Cada jogo, um quadradinho</h2>
-      <p class="dica">Branco é vitória, cinza é empate, vermelho é derrota. Passe o mouse ou toque para ver o jogo.</p>
+      <h2 id="t-numeros">Resumo</h2>
+      <dl id="kpis" class="kpis"></dl>
+    </section>
+
+    <section class="bloco" id="mosaico-bloco" aria-labelledby="t-mosaico">
+      <span class="etiqueta">B</span>
+      <h2 id="t-mosaico">Cada jogo da história</h2>
       <div id="mosaico" class="mosaico"></div>
       <ul class="legenda" aria-hidden="true">
         <li><i class="q v"></i>Vitória</li><li><i class="q e"></i>Empate</li><li><i class="q d"></i>Derrota</li>
       </ul>
     </section>
 
-    <section class="bloco" id="numeros-bloco" aria-labelledby="t-numeros">
-      <span class="etiqueta">B</span>
-      <h2 id="t-numeros">Resumo do que você escolheu</h2>
-      <dl id="kpis" class="kpis"></dl>
-    </section>
-
     <div class="duas-colunas">
       <section class="bloco" id="temporadas-bloco" aria-labelledby="t-temporadas">
         <span class="etiqueta">C</span>
         <h2 id="t-temporadas">Resultados por temporada</h2>
-        <div id="temporadas"></div>
+        <div id="temporadas" class="painel"></div>
       </section>
 
       <section class="bloco" id="casa-fora-bloco" aria-labelledby="t-casafora">
         <span class="etiqueta">D</span>
         <h2 id="t-casafora">Em casa e fora</h2>
-        <div id="casa-fora"></div>
+        <div id="casa-fora" class="painel"></div>
       </section>
     </div>
 

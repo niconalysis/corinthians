@@ -13,6 +13,20 @@ const fmtNum = (n) => n.toLocaleString("pt-BR");
 const pct = (x) => `${Math.round(x * 100)}%`;
 const ehCasa = (p) => p.corinthians_mandante === true;
 
+const ICONES = {
+  jogos: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  vitorias: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/>',
+  empates: '<path d="M5 9h14M5 15h14"/>',
+  derrotas: '<circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/>',
+  aproveitamento: '<path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-6"/>',
+  feitos: '<circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4h-4.4l-1.3-4z"/><path d="M12 3v5M20.5 9.5l-5 1M17.5 19l-3.3-4.5M6.5 19l3.3-4.5M3.5 9.5l5 1"/>',
+  sofridos: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+};
+const iniciais = (nome) => (nome || "?").replace(/[^\p{L}\s]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map((s) => s[0]).join("").toUpperCase() || "?";
+// Escudo, logo ou foto. Sem imagem (ou se ela falhar), mostra as iniciais.
+const imagem = (url, nome, tipo = "") =>
+  `<span class="escudo ${tipo}${url ? "" : " neutro"}">${url ? `<img src="${url}" alt="" loading="lazy" data-ini="${iniciais(nome)}">` : iniciais(nome)}</span>`;
+
 function resumo(lista) {
   const r = { jogos: lista.length, V: 0, E: 0, D: 0, pro: 0, contra: 0 };
   for (const p of lista) {
@@ -67,15 +81,17 @@ function desenhaKpis(lista) {
   const r = resumo(lista);
   const saldo = r.pro - r.contra;
   const itens = [
-    ["", "Jogos", fmtNum(r.jogos)],
-    ["v", "Vitórias", fmtNum(r.V)],
-    ["", "Empates", fmtNum(r.E)],
-    ["d", "Derrotas", fmtNum(r.D)],
-    ["", "Aproveitamento", pct(r.aproveitamento)],
-    ["", "Gols feitos", fmtNum(r.pro)],
-    ["", "Gols sofridos", fmtNum(r.contra)],
+    ["jogos", "Jogos", fmtNum(r.jogos)],
+    ["vitorias", "Vitórias", fmtNum(r.V)],
+    ["empates", "Empates", fmtNum(r.E)],
+    ["derrotas", "Derrotas", fmtNum(r.D)],
+    ["aproveitamento", "Aproveitamento", pct(r.aproveitamento), "destaque"],
+    ["feitos", "Gols feitos", fmtNum(r.pro)],
+    ["sofridos", "Gols sofridos", fmtNum(r.contra)],
   ];
-  $("kpis").innerHTML = itens.map(([c, rotulo, v]) => `<div class="kpi ${c}"><dt>${rotulo}</dt><dd>${v}</dd></div>`).join("");
+  $("kpis").innerHTML = itens
+    .map(([ic, rotulo, v, c = ""]) => `<div class="kpi ${c}"><span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONES[ic]}</svg></span><dd>${v}</dd><dt>${rotulo}</dt></div>`)
+    .join("");
   $("subtitulo").textContent = lista.length
     ? `${fmtNum(lista.length)} jogos · saldo de gols ${saldo > 0 ? "+" : ""}${saldo}`
     : "Nenhum jogo com esses filtros";
@@ -90,14 +106,13 @@ function barra(r) {
 function desenhaTemporadas() {
   const base = partidas.filter((p) => !filtro.tecnico || p.tecnico === filtro.tecnico);
   const anos = [...new Set(base.map((p) => p.temporada))].sort((a, b) => a - b);
-  $("temporadas").innerHTML =
-    anos
-      .map((ano) => {
-        const r = resumo(base.filter((p) => p.temporada === ano));
-        const ativo = filtro.temporada === String(ano) ? " ativo" : "";
-        return `<div class="barra-linha${ativo}"><span class="rotulo">${ano}</span>${barra(r)}<span class="pct">${pct(r.aproveitamento)}</span></div>`;
-      })
-      .join("") + `<p class="nota">A barra mostra vitórias, empates e derrotas. O número ao lado é o aproveitamento de pontos.</p>`;
+  $("temporadas").innerHTML = anos
+    .map((ano) => {
+      const r = resumo(base.filter((p) => p.temporada === ano));
+      const ativo = filtro.temporada === String(ano) ? " ativo" : "";
+      return `<div class="barra-linha${ativo}"><span class="rotulo">${ano}</span>${barra(r)}<span class="pct">${pct(r.aproveitamento)}</span></div>`;
+    })
+    .join("");
 }
 
 function desenhaCasaFora(lista) {
@@ -110,7 +125,7 @@ function desenhaCasaFora(lista) {
     grupos
       .map(([nome, jogos]) => {
         const r = resumo(jogos);
-        return `<div class="barra-linha" style="grid-template-columns:76px 1fr 56px"><span class="rotulo">${nome}</span>${barra(r)}<span class="pct">${r.jogos ? pct(r.aproveitamento) : "–"}</span></div><p class="nota" style="margin:0 0 14px 86px">${fmtNum(r.jogos)} jogos</p>`;
+        return `<div class="cf"><span class="rotulo">${nome}</span>${barra(r)}<small>${fmtNum(r.jogos)} jogos · aproveitamento ${r.jogos ? pct(r.aproveitamento) : "–"}</small></div>`;
       })
       .join("") +
     `</div>`;
@@ -123,7 +138,11 @@ function desenhaLista(lista) {
         .slice(0, mostrados)
         .map(
           (p) =>
-            `<tr class="${CLASSE[p.resultado]}"><td>${fmtData(p.data)}</td><td>${ehCasa(p) ? "" : "@ "}${p.adversario ?? "—"}</td><td class="placar" aria-label="${ROTULO[p.resultado]}">${p.gols_corinthians} x ${p.gols_adversario}</td><td>${p.competicao ?? ""}</td><td>${p.tecnico ?? "—"}</td></tr>`
+            `<tr class="${CLASSE[p.resultado]}"><td>${fmtData(p.data)}</td>` +
+            `<td><span class="com-imagem">${imagem(p.escudo_url, p.adversario)}${ehCasa(p) ? "" : "@ "}${p.adversario ?? "—"}</span></td>` +
+            `<td class="placar" aria-label="${ROTULO[p.resultado]}"><span class="resultado"><i></i>${p.gols_corinthians} x ${p.gols_adversario}</span></td>` +
+            `<td><span class="com-imagem">${imagem(p.competicao_logo_url, p.competicao)}${p.competicao ?? ""}</span></td>` +
+            `<td><span class="com-imagem">${imagem(p.tecnico_foto_url, p.tecnico, "foto")}${p.tecnico ?? "—"}</span></td></tr>`
         )
         .join("")
     : `<tr><td colspan="5" class="vazio">Nenhum jogo com esses filtros. Use "Limpar filtros".</td></tr>`;
@@ -186,6 +205,18 @@ function ligaEventos() {
   $("mosaico").addEventListener("click", mostra);
   $("mosaico").addEventListener("mouseleave", () => (dica.hidden = true));
 }
+
+document.addEventListener(
+  "error",
+  (e) => {
+    const img = e.target;
+    if (img.tagName === "IMG" && img.dataset.ini) {
+      img.parentElement.classList.add("neutro");
+      img.replaceWith(document.createTextNode(img.dataset.ini));
+    }
+  },
+  true
+);
 
 async function inicia() {
   try {

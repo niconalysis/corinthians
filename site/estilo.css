@@ -112,9 +112,15 @@ tbody tr[data-id] { cursor: pointer; }
 tbody tr[data-id]:hover td { background: #202024; }
 tbody tr[data-id]:focus-visible { outline-offset: -2px; }
 
+/* local do jogo */
+.local { display: flex; align-items: center; gap: 8px; }
+.local b { flex: none; padding: 1px 8px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; }
+.local b.casa { background: var(--branco); color: var(--preto); }
+.local b.fora { color: var(--cinza); box-shadow: inset 0 0 0 1px var(--cinza-escuro); }
+
 /* lista de jogos */
 .tabela-rolagem { overflow-x: auto; padding: 4px 18px 8px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; }
-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+table { width: 100%; border-collapse: collapse; min-width: 820px; }
 th { text-align: left; font-weight: 600; color: var(--cinza); font-size: 0.875rem; padding: 12px 12px 8px 0; border-bottom: 1px solid var(--linha); }
 td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--linha); }
 tr:last-child td { border-bottom: 0; }

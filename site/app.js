@@ -30,6 +30,11 @@ const ICONES = {
 };
 const iniciais = (nome) => (nome || "?").replace(/[^\p{L}\s]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map((s) => s[0]).join("").toUpperCase() || "?";
 // Escudo, logo ou foto. Sem imagem (ou se ela falhar), mostra as iniciais.
+// Casa ou fora, mais o nome do estádio. Quando a fonte não diz quem é o mandante, mostra só o estádio.
+const localDoJogo = (p) => {
+  const tag = p.corinthians_mandante === true ? "Casa" : p.corinthians_mandante === false ? "Fora" : "";
+  return `<span class="local">${tag ? `<b class="${tag === "Casa" ? "casa" : "fora"}">${tag}</b>` : ""}<span>${esc(p.estadio ?? "—")}</span></span>`;
+};
 const imagem = (url, nome, tipo = "") =>
   `<span class="escudo ${tipo}${url ? "" : " neutro"}">${url ? `<img src="${url}" alt="" loading="lazy" data-ini="${iniciais(nome)}">` : iniciais(nome)}</span>`;
 
@@ -150,13 +155,14 @@ function desenhaLista(lista) {
         .map(
           (p) =>
             `<tr class="${CLASSE[p.resultado]}" data-id="${esc(p.id_partida)}" tabindex="0" role="button" aria-label="Abrir resumo: ${esc(p.adversario)}, ${p.gols_corinthians} a ${p.gols_adversario}, ${fmtData(p.data)}"><td>${fmtData(p.data)}</td>` +
-            `<td><span class="com-imagem">${imagem(p.escudo_url, p.adversario)}${ehCasa(p) ? "" : "@ "}${esc(p.adversario ?? "—")}</span></td>` +
+            `<td><span class="com-imagem">${imagem(p.escudo_url, p.adversario)}${esc(p.adversario ?? "—")}</span></td>` +
             `<td class="placar" aria-label="${ROTULO[p.resultado]}"><span class="resultado"><i></i>${p.gols_corinthians} x ${p.gols_adversario}</span></td>` +
             `<td><span class="com-imagem">${imagem(p.competicao_logo_url, p.competicao)}${esc(p.competicao ?? "")}</span></td>` +
+            `<td>${localDoJogo(p)}</td>` +
             `<td><span class="com-imagem">${imagem(p.tecnico_foto_url, p.tecnico, "foto")}${esc(p.tecnico ?? "—")}</span></td></tr>`
         )
         .join("")
-    : `<tr><td colspan="5" class="vazio">Nenhum jogo encontrado. Mude a busca ou use "Limpar filtros".</td></tr>`;
+    : `<tr><td colspan="6" class="vazio">Nenhum jogo encontrado. Mude a busca ou use "Limpar filtros".</td></tr>`;
   $("mais").hidden = recentes.length <= mostrados;
 }
 

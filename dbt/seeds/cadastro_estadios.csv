@@ -78,3 +78,30 @@ id_estadio,estadio,cidade,estado,pais,latitude,longitude,origem
 77,Estádio do Canindé,São Paulo,SP,Brasil,-23.5205812,-46.6188461,openstreetmap
 78,Estadio Nemesio Camacho El Campín,Bogotá,,Colômbia,4.6459495,-74.0776054,openstreetmap
 79,Estadio Ciudad de Vicente López,Florida,,Argentina,-34.5402643,-58.4816683,openstreetmap
+80,Arena da Amazônia,Manaus,AM,Brasil,-3.08306,-60.02806,agente: https://en.wikipedia.org/wiki/Arena_da_Amaz%C3%B4nia; https://stadiumdb.com/stadiums/bra/arena_da_amazonia
+81,Nuevo Gasómetro,Buenos Aires,,Argentina,-34.652065,-58.440121,agente: https://en.wikipedia.org/wiki/Estadio_Pedro_Bidegain; https://stadiumdb.com/stadiums/arg/el_nuevo_gasometro
+82,Estadio Monumental David Arellano,Santiago,,Chile,-33.50667,-70.60583,agente: https://en.wikipedia.org/wiki/Estadio_Monumental_David_Arellano; https://stadiumdb.com/stadiums/chi/estadio_monumental_david_arellano
+83,Estadio Libertadores de América,Avellaneda,,Argentina,-34.67028,-58.37083,agente: https://en.wikipedia.org/wiki/Estadio_Libertadores_de_Am%C3%A9rica; https://stadiumdb.com/stadiums/arg/estadio_libertadores_de_america
+84,Estadio Gran Parque Central,Montevidéu,,Uruguai,-34.88437,-56.1588,agente: https://en.wikipedia.org/wiki/Estadio_Gran_Parque_Central; https://stadiumdb.com/stadiums/uru/estadio_gran_parque_central
+85,Estadio Olímpico Atahualpa,Quito,,Equador,-0.1775,-78.47667,agente: https://en.wikipedia.org/wiki/Atahualpa_Olympic_Stadium; https://www.stadiumguide.com/?p=10917
+86,Estádio Rei Pelé,Maceió,AL,Brasil,-9.67056,-35.75917,agente: https://en.wikipedia.org/wiki/Est%C3%A1dio_Rei_Pel%C3%A9; https://audiala.com/cs/brazilie/maceio/estadio-rei-pele
+87,Estadio Luis Franzini,Montevidéu,,Uruguai,-34.916432,-56.166794,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q32255"
+88,Estadio Palogrande,Manizales,,Colômbia,5.057005,-75.490689,"agente: OpenStreetMap (Nominatim, ODbL); https://en.wikipedia.org/wiki/Estadio_Palogrande"
+89,Parque do Sabiá,Uberlândia,MG,Brasil,-18.913087,-48.232994,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q1370705"
+90,Joia da Princesa,Feira de Santana,BA,Brasil,-12.24404,-38.972744,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q5402061"
+91,Teixeirão,São José do Rio Preto,SP,Brasil,-20.797313,-49.359416,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q7695148"
+92,Vail Chaves,Mogi Mirim,SP,Brasil,-22.439479,-46.962114,"agente: OpenStreetMap (Nominatim, ODbL); https://en.wikipedia.org/wiki/Est%C3%A1dio_Vail_Chaves"
+93,Décio Vitta,Americana,SP,Brasil,-22.734388,-47.348209,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q5402023"
+94,Arena Capivari,Capivari,SP,Brasil,-22.993945,-47.514371,"agente: OpenStreetMap (Nominatim, ODbL); https://en.wikipedia.org/wiki/Arena_Capivari"
+95,Luso Brasileiro,Rio de Janeiro,RJ,Brasil,-22.801715,-43.20816,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q3495715"
+96,Giulite Coutinho,Mesquita,RJ,Brasil,-22.795876,-43.419674,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q5402039"
+97,Walter Ribeiro,Sorocaba,SP,Brasil,-23.489848,-47.448819,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q5402120"
+98,Estadio El Cobre,El Salvador,,Chile,-26.251884,-69.628719,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q793766"
+99,Ilha do Retiro,Recife,PE,Brasil,-8.06301,-34.903601,"agente: OpenStreetMap (Nominatim, ODbL); https://en.wikipedia.org/wiki/Est%C3%A1dio_Ilha_do_Retiro"
+100,Estadio La Independencia,Tunja,,Colômbia,5.542153,-73.353359,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q5400324"
+101,Estadio Nacional Julio Martínez Prádanos,Santiago,,Chile,-33.464382,-70.610618,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q594994"
+102,Augusto Bauer,Brusque,SC,Brasil,-27.10137,-48.91608,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q9255182"
+103,Ronaldão,Poços de Caldas,MG,Brasil,-21.77785,-46.605821,"agente: OpenStreetMap (Nominatim, ODbL); https://en.wikipedia.org/wiki/Ronald%C3%A3o_(stadium)"
+104,Durival Britto e Silva,Curitiba,PR,Brasil,-25.439394,-49.255844,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q1370663"
+105,Estádio do Café,Londrina,PR,Brasil,-23.282578,-51.164609,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q143064"
+106,Spectrum Stadium (Acrisure Bounce House),Orlando,,Estados Unidos da América,28.608145,-81.192675,"agente: OpenStreetMap (Nominatim, ODbL); https://www.wikidata.org/wiki/Q2925356"

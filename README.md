@@ -1,6 +1,6 @@
 # Corinthians em Números
 
-Base histórica de todas as partidas do time principal do Sport Club Corinthians Paulista desde 2020 (placar, escalação, minutos jogados, gols, assistências, cartões, público, árbitro e técnicos), atualizada automaticamente e consolidada em um dashboard.
+Base histórica de todas as partidas do time principal do Sport Club Corinthians Paulista desde 2014 (placar, escalação, minutos jogados, gols, assistências, cartões, público, árbitro e técnicos), atualizada automaticamente e consolidada em um dashboard.
 
 Dashboard (versão atual, alimentada pela base legada):
 https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3MDNjNjZlIiwidCI6Ijc0ZDI2NTU1LTE3MjgtNDcwNy1iNDk4LTYyYmQ2ZTdlYjQ1NiJ9

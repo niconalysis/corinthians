@@ -67,6 +67,10 @@ jobs:
         continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
         run: python pipeline/exporta_publico.py
 
+      - name: Exporta os dados dos rankings e recordes
+        continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
+        run: python pipeline/exporta_rankings.py
+
       - name: Prepara o site para publicar
         uses: actions/upload-pages-artifact@v4
         with:

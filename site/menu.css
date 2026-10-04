@@ -1,0 +1,10 @@
+/* Menu de navegação entre as páginas (igual em todas) */
+.menu { background: #0b0b0c; border-bottom: 1px solid #2b2b2f; }
+.menu ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 auto; padding: 10px 24px; max-width: 1200px; }
+.menu a { display: block; padding: 7px 14px; border: 1px solid transparent; border-radius: 999px; color: #9a9aa0; font: 600 0.9rem/1.2 "Barlow", system-ui, sans-serif; text-decoration: none; }
+.menu a:hover, .menu a:focus-visible { color: #f5f4f1; border-color: #2b2b2f; }
+.menu a[aria-current="page"] { color: #f5f4f1; border-color: #c8102e; background: #19191c; }
+@media (max-width: 640px) {
+  .menu ul { flex-wrap: nowrap; overflow-x: auto; padding: 10px 16px; }
+  .menu a { white-space: nowrap; }
+}

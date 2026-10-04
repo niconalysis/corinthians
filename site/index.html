@@ -68,6 +68,11 @@
     <section class="bloco" id="jogos" aria-labelledby="t-jogos">
       <span class="etiqueta">E</span>
       <h2 id="t-jogos">Todos os jogos</h2>
+      <div class="busca">
+        <label for="busca">Buscar jogo</label>
+        <input id="busca" type="search" placeholder="Adversário, competição, técnico ou estádio" autocomplete="off">
+        <span id="busca-contagem" class="busca-contagem" aria-live="polite"></span>
+      </div>
       <div class="tabela-rolagem">
         <table>
           <thead><tr><th>Data</th><th>Adversário</th><th class="num">Placar</th><th>Competição</th><th>Técnico</th></tr></thead>
@@ -82,6 +87,9 @@
     <span id="atualizado"></span>
     <button type="button" id="revisao" aria-pressed="false">Mostrar etiquetas dos blocos</button>
   </footer>
+
+  <div id="fundo-jogo" class="fundo-jogo" hidden></div>
+  <aside id="painel-jogo" class="painel-jogo" role="dialog" aria-modal="true" aria-labelledby="pj-titulo" hidden></aside>
 
   <div id="dica-jogo" class="dica-jogo" role="tooltip" hidden></div>
   <script src="app.js"></script>

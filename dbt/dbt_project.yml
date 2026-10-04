@@ -10,6 +10,9 @@ models:
     marts:
       +materialized: table
       +schema: marts
+    auditoria:
+      +materialized: table
+      +schema: auditoria
 
 seeds:
   corinthians:

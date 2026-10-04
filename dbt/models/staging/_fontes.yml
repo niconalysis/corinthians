@@ -6,3 +6,21 @@ sources:
     tables:
       - name: espn_partidas
         description: JSON cru de cada partida, uma linha por coleta (append-only).
+
+  - name: legado
+    database: corinthians-dados
+    description: Base coletada manualmente até fev/2026 (cópia fiel do SQL Server).
+    tables:
+      - name: partidas_cor
+      - name: escalacoes
+      - name: gols_corinthians
+      - name: gols_adversario
+      - name: assistencias_cor
+      - name: cartoes_amarelos
+      - name: cartoes_vermelhos
+      - name: jogadores
+      - name: adversarios
+      - name: arbitros
+      - name: tecnicos
+      - name: tecnicos_cor
+      - name: campeonatos

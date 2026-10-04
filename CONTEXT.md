@@ -97,4 +97,7 @@ Os dados coletados manualmente até fevereiro de 2026. Serve de referência para
 Comparar a base legada com a fonte automática e listar as divergências (placar, autores de gol, cartões).
 
 **Cadastro manual**:
-Dados de jogador que nenhuma fonte automática fornece (pé dominante, valor de mercado), preenchidos à mão quando conveniente. Opcionais.
+Dados que nenhuma fonte automática fornece, mantidos à mão: de jogador (nascimento, altura, pé dominante, valor de mercado; opcionais) e de estádio (coordenadas, quando a geocodificação automática não acha).
+
+**Divergência**:
+Fato em que a base legada e a fonte automática discordam numa mesma partida (estádio, árbitro, autor de gol, assistência, cartão). Fica registrada para revisão; não some.

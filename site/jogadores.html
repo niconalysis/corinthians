@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogadores e Estádios · Corinthians em Números</title>
+  <meta name="description" content="Quem vestiu a camisa do Corinthians desde 2020 e onde o time já jogou: fichas dos jogadores e mapa dos estádios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23f5f4f1%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="jogadores.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <a class="voltar" href="index.html">← Voltar ao painel</a>
+      <h1>Jogadores e Estádios</h1>
+      <p>Quem vestiu a camisa e onde o Corinthians já jogou</p>
+    </div>
+    <div class="abas" role="tablist">
+      <button type="button" role="tab" id="aba-j" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>Jogadores</button>
+      <button type="button" role="tab" id="aba-m" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Mapa de estádios</button>
+    </div>
+  </header>
+
+  <div id="aviso-exemplo" class="aviso" hidden>Dados de exemplo, inventados só para testar o visual. Os números reais entram quando o pipeline diário rodar.</div>
+
+  <main>
+    <section id="p-j" aria-label="Jogadores">
+      <div class="ferr">
+        <label>Buscar jogador<input id="busca" type="search" placeholder="Digite um nome" autocomplete="off"></label>
+        <label>Temporada<select id="temp"><option value="">Todas</option></select></label>
+        <label>Ordenar por
+          <select id="ord">
+            <option value="jogos">Mais jogos</option>
+            <option value="gols">Mais gols</option>
+            <option value="ass">Mais assistências</option>
+            <option value="cs">Mais jogos sem sofrer gol</option>
+            <option value="nome">Nome (A–Z)</option>
+          </select>
+        </label>
+        <div class="chips" id="posicoes" role="group" aria-label="Posição"></div>
+      </div>
+      <div class="tira" id="tira" role="listbox" aria-label="Escolha um jogador"></div>
+      <div id="ficha"></div>
+    </section>
+
+    <section id="p-m" aria-label="Mapa de estádios" hidden>
+      <div class="ferr">
+        <div class="chips" id="modo" role="group" aria-label="O que o tamanho do pino mostra">
+          <button type="button" data-m="jogos" aria-pressed="true">Jogos</button>
+          <button type="button" data-m="gols" aria-pressed="false">Gols</button>
+        </div>
+      </div>
+      <div class="historias" id="historias" role="group" aria-label="Ver os gols de um jogador"></div>
+      <div class="mapa-wrap">
+        <div id="mapa" role="application" aria-label="Mapa dos estádios"></div>
+        <aside class="lado">
+          <h2 id="lado-t">Estádios mais visitados</h2>
+          <p class="sub" id="lado-s"></p>
+          <div id="lista"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="jogadores.js"></script>
+</body>
+</html>

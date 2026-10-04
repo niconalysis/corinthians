@@ -30,6 +30,10 @@ O clube enfrentado na partida.
 **Técnico do Corinthians / Técnico adversário**:
 Quem comandou cada lado na partida. São cadastros separados porque o interesse de análise é diferente.
 
+**Estádio**:
+Local onde a partida foi disputada, com cidade, país e coordenadas geográficas (latitude e longitude) para exibição em mapa. O mesmo estádio pode aparecer com nomes diferentes (nome comercial × nome histórico); é um único estádio.
+_Evitar_: arena, local
+
 **Árbitro**:
 O árbitro principal da partida. Assistentes e VAR não fazem parte do modelo.
 

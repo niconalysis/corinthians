@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histórico de confrontos · Corinthians em Números</title>
+  <meta name="description" content="Escolha um adversário e veja o retrospecto do Corinthians contra ele: vitórias, empates, derrotas, artilheiros e muito mais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23f5f4f1%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="jogadores.css">
+  <link rel="stylesheet" href="confrontos.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <a class="voltar" href="index.html">← Voltar ao painel</a>
+      <h1>Histórico de confrontos</h1>
+      <p>Escolha um adversário e veja como foram todos os jogos contra ele</p>
+    </div>
+  </header>
+
+  <div id="aviso-exemplo" class="aviso" hidden>Dados de exemplo, inventados só para testar o visual. Os números reais entram quando o pipeline diário rodar.</div>
+
+  <main>
+    <div class="ferr">
+      <label>Buscar adversário<input id="busca" type="search" placeholder="Digite um nome" autocomplete="off"></label>
+      <label>Ordenar por
+        <select id="ord">
+          <option value="jogos">Mais jogos</option>
+          <option value="vit">Mais vitórias</option>
+          <option value="apr">Melhor aproveitamento</option>
+          <option value="nome">Nome (A–Z)</option>
+        </select>
+      </label>
+    </div>
+    <div class="tira" id="tira" role="listbox" aria-label="Escolha um adversário"></div>
+    <div id="ficha"></div>
+  </main>
+
+  <script src="confrontos.js"></script>
+</body>
+</html>

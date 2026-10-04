@@ -17,8 +17,9 @@ PASTA = pathlib.Path(__file__).resolve().parent.parent / "site" / "dados"
 SAIDA = PASTA / "partidas.json"
 SAIDA_DETALHES = PASTA / "detalhes.json"
 
-# Posição no campinho: a da ESPN naquela partida; quando ela só diz D, M ou F (jogos antigos não separam lateral de
-# zagueiro), vale a do legado (GOL, ZAG, LAD, LAE, VOL, MEI, POD, POE, ATA), convertida para as siglas da ESPN.
+# Posição no campinho: vale a do legado (GOL, ZAG, LAD, LAE, VOL, MEI, POD, POE, ATA), convertida para as siglas da ESPN,
+# porque a ESPN ora diz só D, M ou F, ora a vaga do desenho tático (um lateral de linha de três vira zagueiro).
+# Jogador que não está no legado fica com a posição da ESPN naquela partida.
 # Imagens: escudo do time pelo id da ESPN; foto do jogador na ESPN quando existe (medido por pipeline/confere_fotos.py:
 # só 5 de 131 jogadores), senão a do legado (Transfermarkt). Se a imagem falhar no navegador, o site mostra as iniciais.
 ESCUDO_ESPN = "https://a.espncdn.com/i/teamlogos/soccer/500/{id}.png"
@@ -78,16 +79,14 @@ select
     e.id_jogador,
     j.imagem_url as foto_legado,
     j.nome,
-    case
-        when pa.posicao is null or pa.posicao in ('D', 'M', 'F', 'SUB') then coalesce(
-            case lj.posicao
-                when 'GOL' then 'G' when 'ZAG' then 'CD' when 'LAD' then 'RB' when 'LAE' then 'LB'
-                when 'VOL' then 'DM' when 'MEI' then 'CM' when 'POD' then 'RW' when 'POE' then 'LW'
-                when 'ATA' then 'CF'
-            end,
-            pa.posicao, j.posicao)
-        else pa.posicao
-    end as pos,
+    coalesce(
+        case lj.posicao
+            when 'GOL' then 'G' when 'ZAG' then 'CD' when 'LAD' then 'RB' when 'LAE' then 'LB'
+            when 'VOL' then 'DM' when 'MEI' then 'CM' when 'POD' then 'RW' when 'POE' then 'LW'
+            when 'ATA' then 'CF'
+        end,
+        pa.posicao, j.posicao
+    ) as pos,
     coalesce(e.titular, false) as titular,
     coalesce(e.minuto_entrada, 0) as entrada,
     coalesce(e.minuto_saida, 90) as saida

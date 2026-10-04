@@ -12,3 +12,5 @@ O Meu Timão, fonte original das fichas técnicas, passou a ficar atrás de um d
 ## Consequences
 
 As duas fontes são não oficiais e podem mudar sem aviso. O pipeline precisa falhar de forma ruidosa (sem gravar dados incompletos em silêncio) quando o formato mudar.
+
+**Atualização (out/2026):** o ogol passou a bloquear robôs (desafio da Cloudflare). Os técnicos vêm da página de cada jogo no ge.globo; o árbitro já vem da ESPN desde 2022 e do legado antes disso.

@@ -38,7 +38,7 @@ select
     format('Técnicos do Corinthians e do %s na partida de %t (%s)', p.adversario, p.data, p.competicao),
     'dbt/seeds/correcoes_partidas.csv'
 from partidas p
--- o ogol tem 7 dias para preencher antes de virar pendência
+-- o ge tem 7 dias para preencher antes de virar pendência
 where p.tecnico_corinthians is null and p.data < date_sub(current_date('America/Sao_Paulo'), interval 7 day)
 
 union all

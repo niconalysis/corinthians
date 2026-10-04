@@ -1,4 +1,5 @@
--- Uma linha por partida. Base ESPN; o legado completa técnicos (até fev/2026), árbitros e estádios ausentes
+-- Uma linha por partida. Base ESPN; técnicos do ge (a partir de fev/2026) e do legado (até fev/2026); o legado
+-- também completa árbitros e estádios ausentes
 -- na ESPN e as partidas que a ESPN não tem.
 with espn as (
     select
@@ -23,8 +24,8 @@ with espn as (
             if(strpos(p.arbitro, ', ') > 0, concat(split(p.arbitro, ', ')[safe_offset(1)], ' ', split(p.arbitro, ', ')[offset(0)]), p.arbitro),
             l.arbitro
         ) as arbitro,
-        coalesce(cp.tecnico_corinthians, l.tecnico_corinthians) as tecnico_corinthians,
-        coalesce(cp.tecnico_adversario, l.tecnico_adversario) as tecnico_adversario,
+        coalesce(cp.tecnico_corinthians, ge.tecnico_corinthians, l.tecnico_corinthians) as tecnico_corinthians,
+        coalesce(cp.tecnico_adversario, ge.tecnico_adversario, l.tecnico_adversario) as tecnico_adversario,
         'espn' as origem
     from {{ ref('stg_espn__partidas') }} p
     left join {{ ref('competicoes') }} c on c.slug_espn = p.slug_competicao
@@ -32,6 +33,10 @@ with espn as (
     left join {{ ref('de_para_arbitros') }} da on da.arbitro_espn = p.arbitro
     left join {{ ref('stg_legado__partidas') }} l on l.id_partida = p.id_partida
     left join {{ ref('correcoes_partidas') }} cp on cp.id_partida = p.id_partida
+    left join (
+        select * from {{ source('bruto', 'ge_tecnicos') }}
+        qualify row_number() over (partition by id_partida order by coletado_em desc) = 1
+    ) ge on ge.id_partida = p.id_partida
 ),
 
 so_legado as (

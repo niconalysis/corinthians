@@ -6,6 +6,8 @@ sources:
     tables:
       - name: espn_partidas
         description: JSON cru de cada partida, uma linha por coleta (append-only).
+      - name: ge_tecnicos
+        description: Técnicos de cada partida lidos da página do jogo no ge.globo (pipeline/extrai_ge.py).
 
   - name: legado
     database: corinthians-dados

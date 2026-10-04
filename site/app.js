@@ -246,8 +246,8 @@ function ligaEventos() {
 const GRUPO = (pos) => {
   const p = pos.toUpperCase();
   if (p === "G" || p === "GK") return 0;
+  if (/^(DM|CDM)/.test(p)) return 2; // antes da defesa, porque DM também começa com D
   if (/^(CD|CB|SW|LB|RB|LWB|RWB|D)/.test(p)) return 1;
-  if (/^(DM|CDM)/.test(p)) return 2;
   if (/^(AM|CAM|SS|LW|RW)/.test(p)) return 4;
   if (/^(F|LF|RF|CF|ST|S)/.test(p)) return 5;
   return 3; // CM, LM, RM e o resto do meio-campo

@@ -35,10 +35,12 @@ PARTIDAS_CASADAS = """
 CORRECOES_JOGADORES = {
     53: [("371496", "apelido: Bahia = Luiz Gustavo (4 de 4 jogos juntos)")],
     13: [("361471", "apelido: Tchoca = João Pedro (21 de 21 jogos juntos)")],
-    81: [("361471", "o legado juntava dois jogadores: João Pedro (Tchoca), 2021-22"),
-         ("213260", "o legado juntava dois jogadores: João Pedro, 2025-26")],
-    124: [("266673", "o legado juntava dois jogadores: Vitinho, 2021"),
-          ("171652", "o legado juntava dois jogadores: Vitinho, 2025-26")],
+    # Mesmo nome, pessoas diferentes: o legado lançou os jogos de 2025-26 do homônimo no mesmo ID.
+    # O primeiro da lista é o dono do cadastro (data de nascimento confere com a ESPN).
+    81: [("213260", "João Pedro, lateral, nasc. 15/11/1996 (2021-22)"),
+         ("361471", "homônimo: jogos do Tchoca (zagueiro, nasc. 2003) lançados como João Pedro")],
+    124: [("266673", "Vitinho, meia, nasc. 04/01/2000 (2021)"),
+          ("171652", "homônimo: jogos do Vitinho atacante (nasc. 1993, 2025-26) lançados no mesmo ID")],
 }
 
 # id_estadio_espn -> id_estadio (legado ou novo). Revisados manualmente.
@@ -180,11 +182,12 @@ def cadastro_jogadores():
     de_para = {}
     with open(SEEDS / "de_para_jogadores.csv", encoding="utf-8") as f:
         for r in csv.DictReader(f):
-            de_para.setdefault(int(r["id_jogador_legado"]), []).append(r["id_jogador"])
+            if "homônimo" not in r["observacao"]:
+                de_para.setdefault(int(r["id_jogador_legado"]), []).append(r["id_jogador"])
     linhas = []
     for r in bq.query("select * from legado.jogadores order by ID_Jogador").result():
         ids = de_para.get(r["ID_Jogador"], [])
-        if len(ids) != 1:  # sem par na ESPN, ou o legado juntava dois jogadores
+        if len(ids) != 1:  # sem par na ESPN
             continue
         linhas.append([ids[0], r["Nome"].strip(), r["Data_Nasc"] if r["Data_Nasc"] and r["Data_Nasc"].year > 1900 else "",
                        r["Cidade_Nasc"], r["Estado_Nasc"], r["Pais_Nasc"], r["Altura"] or "", r["Pe_Preferido"] or "",

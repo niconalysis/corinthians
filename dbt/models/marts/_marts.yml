@@ -27,7 +27,7 @@ models:
       - name: origem
         data_tests:
           - accepted_values:
-              arguments: {values: [espn, legado]}
+              arguments: {values: [espn, legado, correcao]}
       - name: gols_corinthians
         data_tests: [not_null]
       - name: gols_adversario

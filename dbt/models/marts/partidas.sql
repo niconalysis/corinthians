@@ -14,7 +14,7 @@ with espn as (
         p.penaltis_corinthians,
         p.penaltis_adversario,
         p.posse_corinthians,
-        coalesce(de.id_estadio, l.id_estadio) as id_estadio,
+        coalesce(cp.id_estadio, de.id_estadio, l.id_estadio) as id_estadio,
         p.publico,
         coalesce(
             da.arbitro,
@@ -30,6 +30,7 @@ with espn as (
     left join {{ ref('de_para_estadios') }} de on de.id_estadio_espn = p.id_estadio
     left join {{ ref('de_para_arbitros') }} da on da.arbitro_espn = p.arbitro
     left join {{ ref('stg_legado__partidas') }} l on l.id_partida = p.id_partida
+    left join {{ ref('correcoes_partidas') }} cp on cp.id_partida = p.id_partida
 ),
 
 so_legado as (

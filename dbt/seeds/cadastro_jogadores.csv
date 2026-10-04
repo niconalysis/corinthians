@@ -41,6 +41,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 202485,Pedro Henrique,1995-10-02,Lauro Müller,SC,Brasil,188,Direito,1000000.0,https://img.a.transfermarkt.technology/portrait/big/329720-1580198653.jpg?lm=1
 202493,Ivan,1997-07-02,Rio das Pedras,SP,Brasil,196,Direito,2000000.0,https://img.a.transfermarkt.technology/portrait/big/364257-1658372908.png?lm=1
 202560,Sidcley,1993-05-13,Vila Velha,ES,Brasil,176,Esquerdo,5000000.0,https://img.a.transfermarkt.technology/portrait/big/330060-1679944200.png?lm=1
+213260,João Pedro,1996-11-15,Presidente Prudente,SP,Brasil,179,Direito,900000.0,https://img.a.transfermarkt.technology/portrait/big/342024-1542105407.png?lm=1
 213927,Róger Guedes,1996-10-02,Ibirubá,RS,Brasil,182,Direito,9100000.0,https://img.a.transfermarkt.technology/portrait/big/348263-1483531190.jpg?lm=1
 216098,Matheus Pereira,1998-02-25,São Paulo,SP,Brasil,183,Esquerdo,1200000.0,https://img.a.transfermarkt.technology/portrait/big/323934-1463480335.jpg?lm=1
 223782,Everaldo,1994-05-28,Olinda,PE,Brasil,172,Direito,100000.0,https://img.a.transfermarkt.technology/portrait/big/388397-1558620681.jpg?lm=1
@@ -61,6 +62,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 254266,Léo Natel,1997-03-14,Porto Alegre,RS,Brasil,179,Direito,1400000.0,https://img.a.transfermarkt.technology/portrait/big/351750-1729088033.jpg?lm=1
 257051,Hugo Souza,1999-01-31,Duque de Caxias,RJ,Brasil,199,Direito,3500000.0,https://img.a.transfermarkt.technology/portrait/big/574901-1673960343.jpg?lm=1
 266666,Yuri Alberto,2001-03-18,São José dos Campos,SP,Brasil,183,Direito,16000000.0,https://img.a.transfermarkt.technology/portrait/big/489893-1720056861.jpg?lm=1
+266673,Vitinho,2000-01-04,Guarulhos,SP,Brasil,175,Direito,,https://img.a.transfermarkt.technology/portrait/big/467940-1623883783.jpg?lm=1
 269647,Xavier,2000-03-02,Mococa,SP,Brasil,181,Direito,800000.0,https://img.a.transfermarkt.technology/portrait/big/596426-1662318279.jpg?lm=1
 269746,Robson Bambu,1997-11-12,São Vicente,SP,Brasil,185,Direito,6000000.0,https://img.a.transfermarkt.technology/portrait/big/458715-1543927750.jpg?lm=1
 269902,Bruno Méndez,1999-09-10,Montevideo,,Uruguai,180,Direito,3200000.0,https://img.a.transfermarkt.technology/portrait/big/552912-1558943297.png?lm=1

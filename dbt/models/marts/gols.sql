@@ -1,15 +1,16 @@
 -- Todos os gols da partida, dos dois lados. Gol contra conta para o time oposto ao do autor.
 select
-    id_partida,
-    id_lance as id_gol,
-    id_autor as id_jogador,
-    a_favor_do_corinthians != gol_contra as autor_do_corinthians,
-    a_favor_do_corinthians,
-    gol_contra,
-    penalti,
-    minuto,
-    'espn' as origem
-from {{ ref('stg_espn__gols') }}
+    g.id_partida,
+    g.id_lance as id_gol,
+    coalesce(c.id_jogador, g.id_autor) as id_jogador,
+    g.a_favor_do_corinthians != coalesce(c.gol_contra, g.gol_contra) as autor_do_corinthians,
+    g.a_favor_do_corinthians,
+    coalesce(c.gol_contra, g.gol_contra) as gol_contra,
+    g.penalti,
+    g.minuto,
+    if(c.id_gol is null, 'espn', 'correcao') as origem
+from {{ ref('stg_espn__gols') }} g
+left join {{ ref('correcoes_gols') }} c on c.id_gol = g.id_lance
 
 union all
 

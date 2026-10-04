@@ -1,6 +1,6 @@
 # Corinthians em Números
 
-Base histórica das partidas do time principal do Corinthians (2020 em diante) e de quem participou delas, usada para análise e dashboard.
+Base histórica das partidas do time principal do Corinthians (2014 em diante) e de quem participou delas, usada para análise e dashboard.
 
 ## Linguagem
 

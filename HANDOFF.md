@@ -4,7 +4,7 @@ Leia também: `CLAUDE.md` (regras do projeto), `CONTEXT.md` (glossário), `docs/
 
 ## Goal
 
-Portfólio de dados e IA do Nico (analista de Marketing Ops, quer migrar para data science/ML) sobre todas as partidas do time principal do Corinthians desde 2020. Pipeline 100% automático e com custo zero: ESPN + ge.globo → BigQuery → dbt → dashboard. O Nico não escreve código: o Claude constrói, e ele revisa e faz o merge de cada PR, aprendendo git e cloud no caminho.
+Portfólio de dados e IA do Nico (analista de Marketing Ops, quer migrar para data science/ML) sobre todas as partidas do time principal do Corinthians desde 2014. Pipeline 100% automático e com custo zero: ESPN + ge.globo → BigQuery → dbt → dashboard. O Nico não escreve código: o Claude constrói, e ele revisa e faz o merge de cada PR, aprendendo git e cloud no caminho.
 
 ## Current Progress
 

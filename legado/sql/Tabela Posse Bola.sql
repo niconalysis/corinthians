@@ -1,3 +1,3 @@
 INSERT INTO possebola
 VALUES
-(182025,0.73)
+(72026,0.42)

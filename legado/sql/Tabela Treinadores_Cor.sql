@@ -11,4 +11,6 @@ CREATE TABLE tecnicos_cor(
 
 INSERT INTO tecnicos_cor
 VALUES
-(14,'Vagner Mancini','24/10/1966','Ribeirão Preto','SP','Brasil','Imagem')
+(16,'Dorival Júnior','25/04/1962','Araraquara','SP','Brasil','https://img.a.transfermarkt.technology/portrait/header/4724-1725987510.jpg?lm=1')
+
+SELECT * FROM tecnicos_cor

@@ -15,9 +15,8 @@ ORDER BY 2 DESC
 
 INSERT INTO gols_corinthians
 VALUES
-(192025,45)
-
-
+(72026,131),
+(72026,45)
 
 
 SELECT

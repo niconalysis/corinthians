@@ -7,7 +7,7 @@ CREATE TABLE arbitros(
 
 INSERT INTO arbitros
 VALUES
-(81,'Marielson Alves Silva')
+(87,'Lucas Casagrande')
 
 SELECT *
 FROM arbitros

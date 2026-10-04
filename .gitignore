@@ -1,0 +1,19 @@
+# Versões de teste do Power BI (só a "Derradeira" vai para o histórico)
+legado/powerbi/Corinthians - Versao Testes.pbix
+legado/powerbi/Partidas.pbix
+
+# Rascunhos de imagem
+legado/imagens/bosta.png
+legado/imagens/merdelho.png
+legado/imagens/teste*
+legado/imagens/*testinho*
+
+# Python
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+
+# Credenciais nunca vão para o git
+.env
+*.json.key
+service-account*.json

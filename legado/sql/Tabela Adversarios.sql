@@ -8,4 +8,6 @@ CREATE TABLE adversarios(
 
 INSERT INTO adversarios
 VALUES
-(71,'Barcelona de Guayaquil','','Equador')
+(73,'América de Cali','','Colômbia')
+
+select * from adversarios

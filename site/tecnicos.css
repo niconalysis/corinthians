@@ -1,0 +1,46 @@
+/* Página 4: Técnicos. Reaproveita jogadores.css e confrontos.css; aqui só o que é novo. */
+.dica { margin: 0 0 12px; color: var(--cinza); font-size: 0.92rem; }
+.nota { margin: 20px 0 0; color: var(--cinza); font-size: 0.82rem; }
+.nota:empty { display: none; }
+.fig .ret.sem { display: grid; place-items: center; }
+.cf-topo .brasao.foto-t { width: 132px; height: 165px; border-radius: 14px; overflow: hidden; background: #26262a; }
+.cf-topo .brasao.foto-t img { object-fit: cover; object-position: top; }
+.cf-topo .brasao.foto-t .sem-foto { border-radius: 0; font-size: 3.4rem; }
+.cf-topo .passagem { color: var(--cinza); font-size: 0.85rem; }
+.barra-t { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: #26262a; }
+.barra-t i { display: block; }
+.barra-t .v { background: var(--branco); }
+.barra-t .e { background: #8a8a90; }
+.barra-t .d { background: #3d3d42; }
+.temp { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; padding: 5px 0; font-size: 0.9rem; }
+.temp > span:first-child { font: 700 1.05rem var(--display); color: var(--cinza); }
+.temp b { font-family: var(--display); font-size: 1.05rem; white-space: nowrap; }
+.temp small { color: var(--cinza); font-size: 0.78rem; margin-left: 6px; }
+
+/* comparação */
+.cmp { display: grid; gap: 16px; }
+.cmp-cab { display: grid; grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); gap: 8px; align-items: center; padding: 20px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 20px; }
+.cmp-cab .lado-t { display: grid; justify-items: center; gap: 8px; text-align: center; min-width: 0; }
+.cmp-cab .foto-c { width: 104px; aspect-ratio: 4/5; border-radius: 14px; overflow: hidden; background: #26262a; }
+.cmp-cab .foto-c img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.cmp-cab .foto-c .sem-foto { font-size: 2.4rem; }
+.cmp-cab h2 { font: 800 clamp(1.3rem, 4vw, 2rem)/1.05 var(--display); text-transform: uppercase; margin: 0; overflow-wrap: anywhere; }
+.cmp-cab .sub { color: var(--cinza); font-size: 0.85rem; }
+.cmp-cab .x { font: 700 1.1rem var(--display); color: var(--cinza); text-align: center; }
+.cmp-lin { display: grid; grid-template-columns: minmax(0, 1fr) 112px minmax(0, 1fr); gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--linha); }
+.cmp-lin:last-child { border-bottom: 0; }
+.cmp-lin .rot { text-align: center; color: var(--cinza); font-size: 0.8rem; line-height: 1.2; }
+.cmp-lin .lado-v { display: grid; gap: 5px; min-width: 0; }
+.cmp-lin .lado-v b { font: 700 1.5rem/1 var(--display); color: var(--cinza); }
+.cmp-lin .lado-v.melhor b { color: var(--branco); }
+.cmp-lin .lado-v .tr { height: 6px; border-radius: 3px; background: #26262a; }
+.cmp-lin .lado-v .tr i { display: block; height: 100%; border-radius: 3px; background: var(--cinza-escuro); }
+.cmp-lin .lado-v.melhor .tr i { background: var(--branco); }
+.cmp-lin .esq { text-align: right; }
+.cmp-lin .esq .tr i { margin-left: auto; }
+.cmp-lin .lado-v small { color: var(--cinza); font-size: 0.78rem; font-weight: 400; }
+.cmp-lin .txt b { font-size: 1.1rem; overflow-wrap: anywhere; }
+@media (max-width: 600px) { .cmp-lin { grid-template-columns: minmax(0, 1fr) 84px minmax(0, 1fr); gap: 6px; } .cmp-lin .rot { font-size: 0.7rem; overflow-wrap: anywhere; } .cmp-cab { padding: 14px; } .cmp-cab .foto-c { width: 80px; } }
+.abas button[aria-pressed=true] { background: var(--branco); color: var(--preto); border-color: var(--branco); box-shadow: 0 0 0 2px var(--preto), 0 0 0 4px var(--verm); }
+.todos .jogo { grid-template-columns: 92px 1fr auto; }
+@media (max-width: 600px) { .todos .jogo { grid-template-columns: 84px 1fr auto; gap: 6px; } }

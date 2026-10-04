@@ -59,6 +59,10 @@ jobs:
         continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
         run: python pipeline/exporta_confrontos.py
 
+      - name: Exporta os dados dos técnicos
+        continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
+        run: python pipeline/exporta_tecnicos.py
+
       - name: Exporta os dados de público e Neo Química Arena
         continue-on-error: true  # se falhar, as outras páginas ainda são publicadas
         run: python pipeline/exporta_publico.py

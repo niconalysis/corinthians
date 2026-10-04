@@ -249,7 +249,7 @@ const GRUPO = (pos) => {
   if (/^(CD|CB|SW|LB|RB|LWB|RWB|D)/.test(p)) return 1;
   if (/^(DM|CDM)/.test(p)) return 2;
   if (/^(AM|CAM|SS|LW|RW)/.test(p)) return 4;
-  if (/^(F|CF|ST|S)/.test(p)) return 5;
+  if (/^(F|LF|RF|CF|ST|S)/.test(p)) return 5;
   return 3; // CM, LM, RM e o resto do meio-campo
 };
 const LADO = (pos) => {

@@ -152,7 +152,7 @@ def monta(partidas, gols, cartoes):
             "estadio_mais_usado": estadios.most_common(1)[0][0] if estadios else None,
             "competicoes": sorted(comps.values(), key=lambda c: -c["j"]),
             "jogos": [
-                {"d": p["data"], "comp": p["competicao"], "casa": p["corinthians_mandante"],
+                {"id": str(p["id_partida"]), "d": p["data"], "comp": p["competicao"], "casa": p["corinthians_mandante"],
                  "f": p["gols_corinthians"], "c": p["gols_adversario"], "r": p["resultado"], "est": p["estadio"]}
                 for p in reversed(jogos)  # do mais recente para o mais antigo
             ],

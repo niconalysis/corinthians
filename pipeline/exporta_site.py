@@ -76,12 +76,14 @@ select
     e.id_jogador,
     j.imagem_url as foto_legado,
     j.nome,
-    j.posicao as pos,
+    coalesce(pa.posicao, j.posicao) as pos,
     coalesce(e.titular, false) as titular,
     coalesce(e.minuto_entrada, 0) as entrada,
     coalesce(e.minuto_saida, 90) as saida
 from `corinthians-dados.marts.escalacoes` e
 join `corinthians-dados.marts.jogadores` j using (id_jogador)
+left join `corinthians-dados.staging.stg_espn__participacoes` pa
+    on pa.id_partida = e.id_partida and pa.id_jogador = cast(e.id_jogador as string)
 order by e.id_partida, titular desc, e.minuto_entrada
 """
 

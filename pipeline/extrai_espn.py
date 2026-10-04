@@ -4,7 +4,7 @@ Incremental: busca só partidas encerradas que ainda não estão no bruto, mais 
 dos últimos 7 dias (a fonte corrige dados depois do jogo). A tabela só recebe
 linhas novas; a versão mais recente de cada partida é escolhida na transformação.
 
-Uso: python pipeline/extrai_espn.py [--desde 2020]
+Uso: python pipeline/extrai_espn.py [--desde 2014]
 """
 
 import argparse
@@ -42,7 +42,7 @@ def partidas_encerradas(desde):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--desde", type=int, default=2020)
+    parser.add_argument("--desde", type=int, default=2014)
     args = parser.parse_args()
 
     bq = bigquery.Client(project="corinthians-dados")
@@ -50,7 +50,10 @@ def main():
     ja_coletadas = {r[0] for r in bq.query(f"SELECT DISTINCT id_evento FROM `{TABELA}`").result()}
     corte = (datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=7)).isoformat()
 
-    fila = [(t, e) for t, e in partidas_encerradas(args.desde) if e["id"] not in ja_coletadas or e["date"] >= corte]
+    # a mesma partida não deveria aparecer em duas temporadas, mas o dict garante uma linha por id_evento
+    fila = list({
+        e["id"]: (t, e) for t, e in partidas_encerradas(args.desde) if e["id"] not in ja_coletadas or e["date"] >= corte
+    }.values())
     print(f"{len(ja_coletadas)} partidas já no bruto · {len(fila)} para baixar")
 
     linhas = []

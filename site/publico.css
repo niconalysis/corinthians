@@ -1,0 +1,45 @@
+/* Página 4: Público e Neo Química Arena. Reaproveita jogadores.css e confrontos.css; aqui só o que é novo. */
+.ferr .grupo { display: grid; gap: 4px; }
+.ferr .grupo .rotulo { font-size: 0.85rem; color: var(--cinza); }
+
+.pb { display: grid; gap: 16px; }
+.bloco .sub { margin: -6px 0 14px; color: var(--cinza); font-size: 0.85rem; }
+
+/* barras horizontais (temporadas e adversários) */
+.lbar { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; width: 100%; padding: 6px 8px; border: 0; border-radius: 10px; background: none; color: inherit; font: inherit; text-align: left; }
+button.lbar { cursor: pointer; }
+button.lbar:hover { background: #202024; }
+.lbar .tr { background: #26262a; border-radius: 5px; height: 12px; }
+.lbar .tr i { display: block; height: 12px; border-radius: 5px; background: var(--branco); }
+.lbar b { font: 700 1.1rem var(--display); white-space: nowrap; }
+.lbar b small { font: 500 0.72rem var(--texto); color: var(--cinza); margin-left: 6px; }
+.lbar[aria-pressed=true] { background: #202024; box-shadow: inset 3px 0 0 var(--verm); }
+.lbar .ano { font: 700 1.1rem var(--display); color: var(--cinza); }
+.lbar[aria-pressed=true] .ano { color: var(--branco); }
+.lbar.adv { grid-template-columns: 30px minmax(0, 150px) 1fr auto; }
+.lbar .nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.92rem; }
+.lbar .nome small { display: block; color: var(--cinza); font-size: 0.72rem; }
+.mini-esc { width: 28px; height: 28px; display: grid; place-items: center; }
+.mini-esc img { width: 100%; height: 100%; object-fit: contain; }
+.mini-esc .sem-foto { border-radius: 50%; font-size: 0.8rem; }
+@media (max-width: 520px) { .lbar.adv { grid-template-columns: 30px minmax(0, 1fr) auto; } .lbar.adv .tr { display: none; } }
+
+/* ranking dos maiores públicos */
+.todos.top .jogo { grid-template-columns: 28px 1fr auto; }
+.top .pos { font: 700 1.2rem var(--display); color: var(--cinza); }
+.todos.top .jogo:first-child .pos { color: var(--branco); }
+.top .pub { font: 700 1.3rem var(--display); text-align: right; line-height: 1.1; }
+.top .pub small { display: block; font: 500 0.72rem var(--texto); color: var(--cinza); }
+
+/* casa x fora */
+.tres { display: grid; gap: 10px; }
+@media (min-width: 800px) { .tres { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mando .ap { font: 800 2.4rem/1 var(--display); }
+.mando .ap small { font: 500 0.8rem var(--texto); color: var(--cinza); margin-left: 6px; }
+.tab-ap { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.92rem; }
+.tab-ap th { text-align: left; font: 600 0.78rem var(--texto); color: var(--cinza); padding: 6px 8px; border-bottom: 1px solid var(--linha); }
+.tab-ap td { padding: 8px; border-bottom: 1px solid var(--linha); font-variant-numeric: tabular-nums; }
+.tab-ap th.n, .tab-ap td.n { text-align: right; }
+.tab-ap td.ano { font: 700 1.05rem var(--display); }
+.tab-ap td.melhor { font-weight: 700; }
+.tabela-rolagem { overflow-x: auto; }

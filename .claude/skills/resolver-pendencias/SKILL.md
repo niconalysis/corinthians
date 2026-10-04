@@ -17,6 +17,8 @@ Rode com o cliente Python da `.venv` (`google.cloud.bigquery`, projeto `corinthi
 
 Antes de pesquisar, informe ao Nico quantas pendências há, por tipo, e espere o ok: ele decide se vale gastar tokens.
 
+**Só `auditoria.pendencias` é fila de trabalho.** `auditoria.divergencias_legado_espn` NÃO é: ali vale a ESPN (Q28) e cada linha já tem `status` e `decisao`. Não pesquise divergência por conta própria.
+
 ## 2. Pesquisar em paralelo
 
 Dispare **um subagente por pendência** (Agent, `model: haiku`, em background, todos na mesma mensagem). Com mais de 10 pendências, agrupe até 5 por subagente. Prompt-base:

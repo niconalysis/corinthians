@@ -67,6 +67,17 @@ seeds:
         data_tests:
           - unique
           - relationships: {arguments: {to: ref('gols'), field: id_gol}}
+  - name: tecnicos_periodos
+    description: Técnico do Corinthians por período, para as temporadas em que nem o ge nem o legado têm o técnico da partida (2014 a 2019). Todos os jogos do período entram como sendo dele, inclusive os que a ESPN não tem.
+    config:
+      column_types: {tecnico: string, inicio: date, fim: date, tipo: string}
+    columns:
+      - name: tecnico
+        data_tests:
+          - not_null
+      - name: tipo
+        data_tests:
+          - accepted_values: {arguments: {values: [efetivo, interino]}}
   - name: gols_descartados
     description: Lançamentos de gol da ESPN que não aconteceram (o placar da própria ESPN mostra), com o motivo de cada um.
     config:

@@ -52,6 +52,7 @@ jobs:
         run: python pipeline/exporta_site.py
 
       - name: Exporta os dados dos jogadores e estádios
+        continue-on-error: true  # se falhar, o painel da página 1 ainda é publicado
         run: python pipeline/exporta_jogadores.py
 
       - name: Prepara o site para publicar

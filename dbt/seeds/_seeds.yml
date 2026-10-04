@@ -1,0 +1,46 @@
+version: 2
+
+seeds:
+  - name: competicoes
+    description: Nome em português de cada competição da ESPN.
+  - name: cadastro_estadios
+    description: Estádios únicos com coordenadas, editável. Base no legado (com sinais corrigidos) mais estádios novos geocodificados no OpenStreetMap.
+    config:
+      column_types: {id_estadio: int64, latitude: float64, longitude: float64}
+    columns:
+      - name: id_estadio
+        data_tests: [unique, not_null]
+      - name: latitude
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range: {arguments: {min_value: -56, max_value: 33}}
+      - name: longitude
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range: {arguments: {min_value: -125, max_value: -34}}
+  - name: de_para_estadios
+    description: Estádio da ESPN → estádio único. Gerado por legado/gera_de_para.py.
+    config:
+      column_types: {id_estadio_espn: string, id_estadio: int64}
+    columns:
+      - name: id_estadio_espn
+        data_tests: [unique]
+      - name: id_estadio
+        data_tests:
+          - relationships: {arguments: {to: ref('cadastro_estadios'), field: id_estadio}}
+  - name: de_para_jogadores
+    description: Jogador do legado → atleta da ESPN. Gerado por legado/gera_de_para.py.
+    config:
+      column_types: {id_jogador_legado: int64, id_jogador: string}
+  - name: de_para_arbitros
+    description: Grafia do árbitro na ESPN → nome padronizado (o do legado).
+    columns:
+      - name: arbitro_espn
+        data_tests: [unique]
+  - name: cadastro_jogadores
+    description: Cadastro manual opcional (nascimento, altura, pé, valor de mercado), pré-preenchido com o legado. Edite à vontade.
+    config:
+      column_types: {id_jogador: string, data_nascimento: date, altura_cm: int64, valor_mercado_eur: float64}
+    columns:
+      - name: id_jogador
+        data_tests: [unique]

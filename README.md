@@ -18,7 +18,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 | 2. Carga da base legada no BigQuery | ✅ |
 | 3. Extração automática (ESPN) | ✅ |
 | 4. Modelagem e testes com dbt | ✅ |
-| 5. Reconciliação legado × fonte automática, com IA | ⏳ |
+| 5. Reconciliação legado × fonte automática, com IA | ✅ |
 | 6. Árbitro e técnicos (ogol) | ⏳ |
 | 7. Execução diária no GitHub Actions | ⏳ |
 | 8. Novo dashboard | ⏳ |

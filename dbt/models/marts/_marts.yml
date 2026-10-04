@@ -18,6 +18,16 @@ models:
           - not_null
           - relationships:
               arguments: {to: ref('adversarios'), field: id_adversario}
+      - name: id_estadio
+        data_tests:
+          - not_null:
+              config: {severity: warn}
+          - relationships:
+              arguments: {to: ref('estadios'), field: id_estadio}
+      - name: origem
+        data_tests:
+          - accepted_values:
+              arguments: {values: [espn, legado]}
       - name: gols_corinthians
         data_tests: [not_null]
       - name: gols_adversario
@@ -55,16 +65,22 @@ models:
           - relationships:
               arguments: {to: ref('partidas'), field: id_partida}
       - name: minuto_entrada
-        data_tests: [not_null]
+        data_tests:
+          - not_null:
+              config: {where: "origem = 'espn'"}
       - name: minutos_jogados
-        data_tests: [not_null]
+        data_tests:
+          - not_null:
+              config: {where: "origem = 'espn'"}
 
   - name: gols
     columns:
       - name: id_gol
         data_tests: [unique, not_null]
       - name: id_jogador
-        data_tests: [not_null]
+        data_tests:
+          - not_null:
+              config: {where: "origem = 'espn'"}
       - name: id_partida
         data_tests:
           - relationships:

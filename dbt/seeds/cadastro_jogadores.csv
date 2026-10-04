@@ -13,7 +13,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 140722,Juan Cazares,1992-04-03,Quinindé,,Equador,171,Direito,4500000.0,https://img.a.transfermarkt.technology/portrait/big/146367-1644485116.png?lm=1,legado (coleta manual até fev/2026)
 143702,Pedro Henrique Konzen,1990-06-16,Santa Cruz do Sul,RS,Brasil,179,Direito,2000000.0,https://img.a.transfermarkt.technology/portrait/big/213368-1725326618.jpg?lm=1,legado (coleta manual até fev/2026)
 144121,Danilo Avelar,1989-06-09,Paranavaí,PR,Brasil,185,Esquerdo,1500000.0,https://img.a.transfermarkt.technology/portrait/big/140748-1448968398.jpg?lm=1,legado (coleta manual até fev/2026)
-144324,Zakaria Labyad,1993-03-09,Utrecht,,Países Baixos,173,Ambidestro,,,agente: en.wikipedia.org/wiki/Zakaria_Labyad; ogol.com.br/player.php?id=130695; fotmob.com/players/193177 (altura 173 vs 175 e pé ambidestro vs direito divergem entre fontes)
+144324,Zakaria Labyad,1993-03-09,Utrecht,,Países Baixos,175,Ambidestro,,,agente: en.wikipedia.org/wiki/Zakaria_Labyad; ogol.com.br/player.php?id=130695; fotmob.com/players/193177 (altura 175 escolhida por Nico; pé ambidestro vs direito divergem entre fontes)
 148189,André Carrillo,1991-06-14,Lima,,Peru,180,Direito,2500000.0,https://img.a.transfermarkt.technology/portrait/big/135057-1698420514.JPG?lm=1,legado (coleta manual até fev/2026)
 148775,Mauro Boselli,1985-05-22,Buenos Aires,,Argentina,181,Direito,1800000.0,https://img.a.transfermarkt.technology/portrait/big/40822-1425462626.jpg?lm=1,legado (coleta manual até fev/2026)
 157285,Ramiro,1993-05-22,Gramado,RS,Brasil,169,Direito,2800000.0,https://img.a.transfermarkt.technology/portrait/big/258070-1512665583.jpg?lm=1,legado (coleta manual até fev/2026)
@@ -23,7 +23,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 165893,Gil,1987-06-12,Campos dos Goytacazes,RJ,Brasil,192,Direito,2300000.0,https://img.a.transfermarkt.technology/portrait/big/101469-1523621399.jpg?lm=1,legado (coleta manual até fev/2026)
 168981,Gustavo Henrique,1993-03-24,São Paulo,SP,Brasil,194,Direito,3200000.0,https://img.a.transfermarkt.technology/portrait/big/208681-1725326922.jpg?lm=1,legado (coleta manual até fev/2026)
 169136,Jesse Lingard,1992-12-15,Warrington,,Inglaterra,175,Direito,,,agente: en.wikipedia.org/wiki/Jesse_Lingard; ogol.com.br/jogador/jesse-lingard/156549
-171652,Vitinho,1993-10-09,,RJ,Brasil,180,Direito,,,agente: pt.wikipedia.org/wiki/Vitinho_(futebolista); ogol.com.br/jogador/vitinho/196706; ESPN (cidade sem duas fontes; altura 180 vs 178)
+171652,Vitinho,1993-10-09,Rio de Janeiro,RJ,Brasil,180,Direito,,,agente: pt.wikipedia.org/wiki/Vitinho_(futebolista); ogol.com.br/jogador/vitinho/196706; ESPN (cidade Rio de Janeiro definida por Nico; altura 180 vs 178)
 171993,Gabriel,1997-01-02,Campinas,SP,Brasil,171,Direito,3200000.0,https://img.a.transfermarkt.technology/portrait/big/213606-1542110736.jpg?lm=1,legado (coleta manual até fev/2026)
 178487,Willian,1988-08-09,Ribeirão Pires,SP,Brasil,175,Direito,15000000.0,https://img.a.transfermarkt.technology/portrait/big/52769-1728418132.png?lm=1,legado (coleta manual até fev/2026)
 184403,Rafael Ramos,1995-01-09,Seia,,Portugal,174,Direito,800000.0,https://img.a.transfermarkt.technology/portrait/big/290388-1520962070.jpg?lm=1,legado (coleta manual até fev/2026)

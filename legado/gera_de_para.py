@@ -178,7 +178,11 @@ def arbitros():
 
 
 def cadastro_jogadores():
-    """Planilha de cadastro manual, pré-preenchida com os dados do legado."""
+    """Planilha de cadastro manual, pré-preenchida com os dados do legado. Só cria se não existir:
+    depois disso ela recebe edições manuais e da skill resolver-pendencias, que não podem ser perdidas."""
+    if (SEEDS / "cadastro_jogadores.csv").exists():
+        print("cadastro_jogadores.csv já existe; mantido")
+        return
     de_para = {}
     with open(SEEDS / "de_para_jogadores.csv", encoding="utf-8") as f:
         for r in csv.DictReader(f):
@@ -191,9 +195,9 @@ def cadastro_jogadores():
             continue
         linhas.append([ids[0], r["Nome"].strip(), r["Data_Nasc"] if r["Data_Nasc"] and r["Data_Nasc"].year > 1900 else "",
                        r["Cidade_Nasc"], r["Estado_Nasc"], r["Pais_Nasc"], r["Altura"] or "", r["Pe_Preferido"] or "",
-                       r["Valor_Mercado"] or "", r["Imagem"] or ""])
+                       r["Valor_Mercado"] or "", r["Imagem"] or "", "legado (coleta manual até fev/2026)"])
     grava("cadastro_jogadores.csv", ["id_jogador", "nome", "data_nascimento", "cidade_nascimento", "estado_nascimento",
-                                     "pais_nascimento", "altura_cm", "pe_preferido", "valor_mercado_eur", "imagem_url"],
+                                     "pais_nascimento", "altura_cm", "pe_preferido", "valor_mercado_eur", "imagem_url", "fontes"],
           sorted(linhas))
 
 

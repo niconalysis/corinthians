@@ -34,8 +34,9 @@ WHERE ID_Jogador = 23
 
 INSERT INTO jogadores
 VALUES
-	(1000,'Gol Contra','','','','','','','','','','','','',4)
-	/*(1,'Hugo Souza','31/01/1999','Duque de Caxias', 'RJ','Brasil',199,1,'Direito','3500000','','01/01/2025',''),
+
+	/*(1000,'Gol Contra','','','','','','','','','','','','',4)
+	(1,'Hugo Souza','31/01/1999','Duque de Caxias', 'RJ','Brasil',199,1,'Direito','3500000','','01/01/2025',''),
 	(2,'Matheus Donelli','17/05/2002','São Paulo', 'SP','Brasil',187,1,'Direito','2500000','','01/03/2021',''),
 	(3,'Cássio','06/06/1987','Veranópolis','RS','Brasil',195,12,'Esquerdo','1200000','','09/12/2011','10/07/2024'),
 	(4,'Carlos Miguel','09/10/1998','Cardoso Moreira','RJ','Brasil',204,22,'Esquerdo','700000','','31/08/2021','09/07/2024'),
@@ -128,6 +129,7 @@ VALUES
 --temporada 2022
 INSERT INTO jogadores
 VALUES
+(128,'Dieguinho ','16/09/2007','São Paulo','SP','Brasil',170,61,'Esquerdo','','https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1','01/01/2025','','POD',3)
 (75,'Ivan','02/07/1997','Rio das Pedras','SP','Brasil',196,1,'Direito','2000000','https://img.a.transfermarkt.technology/portrait/big/364257-1658372908.png?lm=1','31/01/2022','07/01/2024','GOL',1),
 (76,'Robson Bambu','12/11/1997','São Vicente','SP','Brasil',185,3,'Direito','6000000','https://img.a.transfermarkt.technology/portrait/big/458715-1543927750.jpg?lm=1','21/01/2022','31/12/2022','ZAG',1),
 (77,'João Victor','17/07/1998','Bauru','SP','Brasil',187,33,'Direito','800000','https://img.a.transfermarkt.technology/portrait/big/671145-1661241753.jpg?lm=1','01/01/2019','07/07/2022','ZAG',1),
@@ -149,6 +151,12 @@ VALUES
 
 INSERT INTO jogadores
 VALUES
+(134,'Kaio César','15/02/2004','MAceió','Alagoas','Brasil',168,37,'Esquerdo',4500000,'https://img.a.transfermarkt.technology/portrait/big/766258-1671194523.jpg?lm=1','29/01/2026',NULL,'POD',3)
+(133,'Pedro Milans','24/03/2002','Las Piedras','','Uruguai',171,20,'Direito',1500000,'https://img.a.transfermarkt.technology/portrait/big/657743-1721247131.jpg?lm=1','21/01/2026',NULL,'LAD',1)
+(132,'Matheus Pereira','25/02/1998','São Paulo','SP','Brasil',183,23,'Esquerdo',1200000,'https://img.a.transfermarkt.technology/portrait/big/323934-1463480335.jpg?lm=1','16/01/2026',NULL,'VOL',2)
+(131,'Gabriel Paulista','26/11/1990','São Paulo','SP','Brasil',185,3,'Direito',700000,'https://img.a.transfermarkt.technology/portrait/big/149498-1727355000.png?lm=1','12/01/2026','','ZAG',1)
+(130,'André Luiz','20/06/2006','São Paulo','SP','Brasil',181,49,'Direito','','https://img.a.transfermarkt.technology/portrait/header/1257133-1756387275.jpg?lm=1','22/08/2025','','MEI',2)
+(129,'Gui Negão','06/02/2007','São Paulo','SP','Brasil',179,56,'Direito','8000000','https://img.a.transfermarkt.technology/portrait/header/1257133-1756387275.jpg?lm=1','01/07/2025','','ATA',3)
 (127,'Fabrizio Angileri','15/03/1994','Junín','','Argentina',185,26,'Esquerdo','700000','https://img.a.transfermarkt.technology/portrait/big/268506-1625760521.png?lm=1','27/02/2025','','LAE',1)
 (126,'Madson','26/08/1999','Coruripe','AL','Brasil',164,50,'Esquerdo','','https://img.a.transfermarkt.technology/portrait/big/269860-1580198215.jpg?lm=1','01/01/2020','01/07/2022','POE',3)
 (125,'Walter','18/11/1987','Jaú','SP','Brasil',188,27,'Direito',900000,'https://img.a.transfermarkt.technology/portrait/big/269860-1580198215.jpg?lm=1','03/05/2013','01/01/2022','GOL',1),
@@ -173,3 +181,11 @@ VALUES
 (122,'Carlinhos','12/02/1997','Jaú','SP','Brasil',195,44,'Direito','','https://img.a.transfermarkt.technology/portrait/big/363173-1720095894.jpg?lm=1','01/01/2017','24/02/2021','ATA',3),
 (123,'Matheus Davó','16/08/1999','São Paulo','SP','Brasil',178,33,'Direito','','https://img.a.transfermarkt.technology/portrait/big/670522-1712086866.jpg?lm=1','13/01/2020','11/01/2023','POD',3),
 (124,'Vitinho','04/01/2000','Guarulhos','SP','Brasil',175,43,'Direito','','https://img.a.transfermarkt.technology/portrait/big/467940-1623883783.jpg?lm=1','01/07/2017','20/07/2022','MEI',2)
+
+UPDATE jogadores
+SET Fim_Contrato = NULL
+WHERE Fim_Contrato = ''
+
+SELECT *
+FROM jogadores
+WHERE Fim_Contrato = '' 

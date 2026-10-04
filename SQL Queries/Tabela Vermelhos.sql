@@ -9,4 +9,4 @@ SET ID_Partida = CONCAT(ID_Partida,2024)
 
 INSERT INTO cartoes_vermelhos
 VALUES
-(732021,19)
+(672025,23)

@@ -44,8 +44,11 @@ SET Renda = 0,
 	Publico = 0
 WHERE ID_Partida IN (142023, 152023,272023)
 
-
 INSERT INTO partidas_cor
 VALUES
-(192025, '16/03/2025','Corinthians',1,9,0,3,1,3,8,19,5717077.40,40992)
+(72026, '01/02/2026','Corinthians',2,24,0,16,16,9,16,27,12690257.00,71244)
+
+SELECT * FROM partidas_cor
+ORDER BY Data DESC
+ 
 

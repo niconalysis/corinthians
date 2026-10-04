@@ -6,7 +6,7 @@ CREATE TABLE campeonatos(
 
 INSERT INTO campeonatos
 VALUES
-(8,'Florida Cup')
+(9,'Supercopa')
 
 SELECT
 	CONCAT('"',Nome_Campeonato,'"',':',ID_Campeonato,',')

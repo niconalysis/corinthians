@@ -8,7 +8,7 @@ CREATE TABLE estadios(
 
 INSERT INTO estadios
 VALUES
-(71,'Estádio Monumental Isidro Romero Carbo','Guayaquil','','Equador','-2,18589','-79,92497')
+(75,'Estádio Benito Agnelo Castellano','Rio Claro','SP','Brasil','-22,41814','-47,5564')
 
 
 SELECT *
@@ -19,3 +19,7 @@ UPDATE estadios
 SET Latitude = '-16,67086',
 Longitude = '-49,26256'
 WHERE ID_Estadio = 59
+
+UPDATE estadios
+SET Cidade = 'Cali'
+WHERE ID_Estadio = 72

@@ -11,12 +11,12 @@ CREATE TABLE tecnicos(
 
 INSERT INTO tecnicos
 VALUES
-(141,'Segundo Castillo','15/05/1982','San Lorenzo','','Equador','Imagem')
+(149,'Martín Palermo','07/11/1973','La Plata','','Argentina','Imagem')
 
-SELECT * FROM tecnicos WHERE Nome LIKE '%iago%'
+SELECT * FROM tecnicos WHERE Nome LIKE '%Mancini%'
 
 UPDATE tecnicos
 SET 
-	Nome = 'Mauricio Larriera'
-WHERE ID_Tecnico = 132
+	Data_Nasc = '12/05/1961'
+WHERE ID_Tecnico = 142
 

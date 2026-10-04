@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: partidas
+    description: Uma linha por partida do Corinthians.
+    columns:
+      - name: id_partida
+        data_tests: [unique, not_null]
+      - name: data
+        data_tests: [not_null]
+      - name: competicao
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [Brasileirão, Paulista, Copa do Brasil, Libertadores, Sul-Americana, Supercopa do Brasil, Amistoso]
+      - name: id_adversario
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('adversarios'), field: id_adversario}
+      - name: gols_corinthians
+        data_tests: [not_null]
+      - name: gols_adversario
+        data_tests: [not_null]
+
+  - name: adversarios
+    columns:
+      - name: id_adversario
+        data_tests: [unique, not_null]
+
+  - name: estadios
+    columns:
+      - name: id_estadio
+        data_tests: [unique, not_null]
+
+  - name: jogadores
+    columns:
+      - name: id_jogador
+        data_tests: [unique, not_null]
+
+  - name: jogadores_adversarios
+    columns:
+      - name: id_jogador
+        data_tests: [unique, not_null]
+
+  - name: escalacoes
+    description: Jogadores do Corinthians que entraram em campo, com minutos jogados.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [id_partida, id_jogador]
+    columns:
+      - name: id_partida
+        data_tests:
+          - relationships:
+              arguments: {to: ref('partidas'), field: id_partida}
+      - name: minuto_entrada
+        data_tests: [not_null]
+      - name: minutos_jogados
+        data_tests: [not_null]
+
+  - name: gols
+    columns:
+      - name: id_gol
+        data_tests: [unique, not_null]
+      - name: id_jogador
+        data_tests: [not_null]
+      - name: id_partida
+        data_tests:
+          - relationships:
+              arguments: {to: ref('partidas'), field: id_partida}
+
+  - name: assistencias
+    columns:
+      - name: id_jogador
+        data_tests:
+          - relationships:
+              arguments: {to: ref('jogadores'), field: id_jogador}
+              config: {severity: warn}
+
+  - name: cartoes
+    columns:
+      - name: id_jogador
+        data_tests:
+          - relationships:
+              arguments: {to: ref('jogadores'), field: id_jogador}

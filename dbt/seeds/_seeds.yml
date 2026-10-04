@@ -47,7 +47,7 @@ seeds:
   - name: correcoes_partidas
     description: Correções manuais de fatos da partida em que a ESPN erra, com a fonte de cada uma.
     config:
-      column_types: {id_partida: string, id_estadio: int64}
+      column_types: {id_partida: string, id_estadio: int64, arbitro: string, tecnico_corinthians: string, tecnico_adversario: string}
     columns:
       - name: id_partida
         data_tests:

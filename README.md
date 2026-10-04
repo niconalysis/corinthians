@@ -19,7 +19,8 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 | 3. Extração automática (ESPN) | ✅ |
 | 4. Modelagem e testes com dbt | ✅ |
 | 5. Reconciliação legado × fonte automática, com IA | ✅ |
-| 6. Árbitro e técnicos (ogol) | ⏳ |
+| 5b. Agentes de pesquisa para pendências | ✅ |
+| 6. Técnicos (ogol) | ⏳ |
 | 7. Execução diária no GitHub Actions | ⏳ |
 | 8. Novo dashboard | ⏳ |
 | 9. Modelos preditivos com BigQuery ML | ⏳ |
@@ -29,6 +30,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 
 - [`CONTEXT.md`](CONTEXT.md): glossário do domínio (o que é uma Partida, Escalação, Gol contra etc.)
 - [`docs/adr/`](docs/adr/): registro das decisões de arquitetura e do porquê de cada uma
+- [`.claude/skills/resolver-pendencias/`](.claude/skills/resolver-pendencias/SKILL.md): como os agentes de IA resolvem dados faltantes, sempre via PR
 
 ## Contato
 

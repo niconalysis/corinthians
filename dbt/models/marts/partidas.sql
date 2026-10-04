@@ -17,13 +17,14 @@ with espn as (
         coalesce(cp.id_estadio, de.id_estadio, l.id_estadio) as id_estadio,
         p.publico,
         coalesce(
+            cp.arbitro,
             da.arbitro,
             -- grafia "Sobrenome, Nome" de árbitros que ainda não estão no de-para
             if(strpos(p.arbitro, ', ') > 0, concat(split(p.arbitro, ', ')[safe_offset(1)], ' ', split(p.arbitro, ', ')[offset(0)]), p.arbitro),
             l.arbitro
         ) as arbitro,
-        l.tecnico_corinthians,
-        l.tecnico_adversario,
+        coalesce(cp.tecnico_corinthians, l.tecnico_corinthians) as tecnico_corinthians,
+        coalesce(cp.tecnico_adversario, l.tecnico_adversario) as tecnico_adversario,
         'espn' as origem
     from {{ ref('stg_espn__partidas') }} p
     left join {{ ref('competicoes') }} c on c.slug_espn = p.slug_competicao

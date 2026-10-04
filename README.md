@@ -22,7 +22,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 | 5b. Agentes de pesquisa para pendências | ✅ |
 | 6. Técnicos (ge.globo) | ✅ |
 | 7. Execução diária no GitHub Actions | ✅ |
-| 8. Novo dashboard | ⏳ |
+| 8. Novo dashboard (site em `site/`, publicado no GitHub Pages) | 🚧 página 1 pronta |
 | 9. Modelos preditivos com BigQuery ML | ⏳ |
 | 10. Perguntas em linguagem natural | ⏳ |
 

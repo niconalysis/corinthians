@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Público e Neo Química Arena · Corinthians em Números</title>
+  <meta name="description" content="Quantos torcedores vão aos jogos do Corinthians: média de público por temporada e por adversário, maiores públicos e aproveitamento em casa e fora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23f5f4f1%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="jogadores.css">
+  <link rel="stylesheet" href="confrontos.css">
+  <link rel="stylesheet" href="publico.css">
+  <link rel="stylesheet" href="painel-jogo.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <a class="voltar" href="index.html">← Voltar ao painel</a>
+      <h1>Público e Neo Química Arena</h1>
+      <p>Quantos torcedores acompanham o Corinthians, e como o time se sai em casa e fora</p>
+    </div>
+  </header>
+
+  <div id="aviso-exemplo" class="aviso" hidden>Dados de exemplo, inventados só para testar o visual. Os números reais entram quando o pipeline diário rodar.</div>
+
+  <main>
+    <div class="ferr">
+      <label>Temporada<select id="f-temp"><option value="">Todas as temporadas</option></select></label>
+      <div class="grupo" role="group" aria-label="Quais jogos em casa">
+        <span class="rotulo">Jogos em casa</span>
+        <div class="chips" id="f-est">
+          <button type="button" data-v="todos" aria-pressed="true">Todos os estádios</button>
+          <button type="button" data-v="nqa" aria-pressed="false">Só na Neo Química Arena</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="conteudo"></div>
+  </main>
+
+  <div id="fundo-jogo" class="fundo-jogo" hidden></div>
+  <aside id="painel-jogo" class="painel-jogo" role="dialog" aria-modal="true" aria-labelledby="pj-titulo" hidden></aside>
+
+  <script src="painel-jogo.js"></script>
+  <script src="publico.js"></script>
+</body>
+</html>

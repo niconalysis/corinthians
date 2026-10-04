@@ -1,0 +1,21 @@
+# Mede a cobertura de fotos de jogadores na ESPN. Roda só quando o próprio script muda (ou no botão "Run workflow").
+name: confere fotos
+
+on:
+  pull_request:
+    paths:
+      - pipeline/confere_fotos.py
+      - .github/workflows/confere-fotos.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fotos:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 pipeline/confere_fotos.py | tee resultado.txt
+      - name: Resumo
+        run: (head -n 4 resultado.txt; grep "^Escudos" resultado.txt) >> "$GITHUB_STEP_SUMMARY"

@@ -1,4 +1,5 @@
-# Pipeline diário: ESPN -> dbt -> ge (técnicos) -> dbt. Autenticação sem chave (Workload Identity Federation).
+# Pipeline diário: ESPN -> dbt -> ge (técnicos) -> dbt -> exporta os dados do site -> publica no GitHub Pages.
+# Autenticação sem chave (Workload Identity Federation).
 name: pipeline diário
 
 on:
@@ -46,3 +47,25 @@ jobs:
       - name: dbt (final)
         working-directory: dbt
         run: dbt build --profiles-dir .
+
+      - name: Exporta os dados do site
+        run: python pipeline/exporta_site.py
+
+      - name: Prepara o site para publicar
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  publica:
+    needs: pipeline
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write      # publicar no GitHub Pages
+      id-token: write   # o Pages confere que o pedido vem deste repositório
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - id: publicacao
+        uses: actions/deploy-pages@v4

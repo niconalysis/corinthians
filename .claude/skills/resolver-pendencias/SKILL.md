@@ -5,7 +5,7 @@ description: Resolve as pendências de dados do projeto Corinthians (jogador sem
 
 # Resolver pendências
 
-O fluxo principal de dados é ESPN + ogol, automático. Esta skill cobre só o que eles não resolvem, e nunca grava nada sem passar por um PR que o Nico aprova (ADR 0004).
+O fluxo principal de dados é ESPN + ge.globo, automático. Esta skill cobre só o que eles não resolvem, e nunca grava nada sem passar por um PR que o Nico aprova (ADR 0004).
 
 ## 1. Ler a fila
 
@@ -15,14 +15,14 @@ select tipo, chave, descricao, destino from `corinthians-dados.auditoria.pendenc
 
 Rode com o cliente Python da `.venv` (`google.cloud.bigquery`, projeto `corinthians-dados`). Antes, `dbt build` em `dbt/` para a fila estar atualizada.
 
-Ignore `partida_sem_tecnico` enquanto a etapa 6 (ogol) não estiver no pipeline (README).
+Antes de pesquisar, informe ao Nico quantas pendências há, por tipo, e espere o ok: ele decide se vale gastar tokens.
 
 ## 2. Pesquisar em paralelo
 
 Dispare **um subagente por pendência** (Agent, `model: haiku`, em background, todos na mesma mensagem). Com mais de 10 pendências, agrupe até 5 por subagente. Prompt-base:
 
 > Pesquise na web e responda só com JSON. Pendência: {descricao}. Campos pedidos: {campos}.
-> Regras: cada valor precisa de **duas fontes independentes que concordem** (Wikipedia, ogol/zerozero, ge.globo, site oficial do clube ou da competição, imprensa esportiva). Se as fontes discordarem ou só houver uma, devolva o campo como null e explique em "duvidas". Não use dados de raspagem nem contorne bloqueios; leia só o que a busca entrega. Não invente.
+> Regras: cada valor precisa de **duas fontes independentes que concordem** (Wikipedia, ge.globo, site oficial do clube ou da competição, imprensa esportiva). Se as fontes discordarem ou só houver uma, devolva o campo como null e explique em "duvidas". Não use dados de raspagem nem contorne bloqueios; leia só o que a busca entrega. Não invente.
 > Formato: {"chave": "...", "campos": {...}, "fontes": ["url1", "url2"], "duvidas": "..."}
 
 Campos por tipo:

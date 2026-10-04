@@ -1,0 +1,48 @@
+# Pipeline diário: ESPN -> dbt -> ge (técnicos) -> dbt. Autenticação sem chave (Workload Identity Federation).
+name: pipeline diário
+
+on:
+  schedule:
+    - cron: "0 9 * * *"  # 06h em Brasília
+  workflow_dispatch:      # botão "Run workflow" para rodar na hora
+
+permissions:
+  contents: read
+  id-token: write  # permite pedir o crachá temporário ao GitHub
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/168885872868/locations/global/workloadIdentityPools/github/providers/github-oidc
+          service_account: pipeline-github@corinthians-dados.iam.gserviceaccount.com
+
+      - name: Extração ESPN
+        run: python pipeline/extrai_espn.py
+
+      - name: dbt (antes do ge)
+        working-directory: dbt
+        run: dbt deps && dbt build --profiles-dir .
+
+      - name: Técnicos (ge)
+        run: python pipeline/extrai_ge.py
+
+      - name: dbt (final)
+        working-directory: dbt
+        run: dbt build --profiles-dir .

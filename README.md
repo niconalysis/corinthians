@@ -21,7 +21,7 @@ https://app.powerbi.com/view?r=eyJrIjoiMDIwNjU5ZWEtNWY2My00MmFiLThkNDUtNTY4YWQ3M
 | 5. Reconciliação legado × fonte automática, com IA | ✅ |
 | 5b. Agentes de pesquisa para pendências | ✅ |
 | 6. Técnicos (ge.globo) | ✅ |
-| 7. Execução diária no GitHub Actions | ⏳ |
+| 7. Execução diária no GitHub Actions | ✅ |
 | 8. Novo dashboard | ⏳ |
 | 9. Modelos preditivos com BigQuery ML | ⏳ |
 | 10. Perguntas em linguagem natural | ⏳ |

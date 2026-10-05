@@ -9,7 +9,7 @@
 
   var item = document.createElement("li");
   item.className = "menu-cafe";
-  item.innerHTML = '<button type="button" class="cafe-botao">\u2615 Pague um cafezinho</button>';
+  item.innerHTML = '<button type="button" class="cafe-botao">\u2615 <span class="cafe-texto">Pague um cafezinho</span></button>';
   lista.appendChild(item);
 
   var caixa = document.createElement("dialog");

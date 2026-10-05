@@ -1,5 +1,7 @@
 /* "Pague um cafezinho": botão no menu e painel com a chave Pix */
-.menu-cafe { margin-left: auto; }
+.menu { position: relative; }
+.menu ul:has(.menu-cafe) { padding-right: 250px; }
+.menu-cafe { position: absolute; top: 50%; right: 24px; transform: translateY(-50%); }
 .menu .cafe-botao { padding: 7px 14px; border: 1px solid #c8102e; border-radius: 999px; background: transparent; color: #f5f4f1; font: 600 0.9rem/1.2 "Barlow", system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
 .menu .cafe-botao:hover, .menu .cafe-botao:focus-visible { background: #19191c; }
 .cafe-caixa { width: min(380px, calc(100vw - 32px)); padding: 28px 24px 24px; border: 1px solid #2b2b2f; border-radius: 16px; background: #151517; color: #f5f4f1; font: 400 1rem/1.5 "Barlow", system-ui, sans-serif; text-align: center; }
@@ -19,4 +21,11 @@
 .cafe-secundario { background: transparent; color: #f5f4f1; border-color: #2b2b2f; }
 .cafe-secundario:hover { background: #19191c; border-color: #5c5c63; }
 .cafe-aviso { min-height: 1.5em; margin: 12px 0 0 !important; font-size: 0.9rem; color: #f5f4f1 !important; }
-@media (max-width: 640px) { .menu-cafe { margin-left: 0; } }
+@media (max-width: 640px) {
+  .menu ul:has(.menu-cafe) { padding-right: 84px; }
+  .menu-cafe { right: 12px; }
+  .menu-cafe::before { content: ""; position: absolute; right: 100%; top: -10px; bottom: -10px; width: 24px; background: linear-gradient(to right, transparent, #0b0b0c); pointer-events: none; }
+  .cafe-texto { display: none; }
+  .menu .cafe-botao { background: #0b0b0c; padding: 7px 12px; }
+  .menu .cafe-botao::after { content: "Pix"; }
+}

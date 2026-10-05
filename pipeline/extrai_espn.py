@@ -11,6 +11,7 @@ import argparse
 import datetime
 import json
 import time
+import urllib.error
 import urllib.request
 
 from google.cloud import bigquery
@@ -28,9 +29,23 @@ SCHEMA = [
 
 
 def baixa(url):
+    """Baixa o JSON; erro 5xx ou de rede (a ESPN às vezes devolve 502) tenta de novo, esperando um pouco mais a cada vez."""
     req = urllib.request.Request(url, headers={"User-Agent": "corinthians-dados (github.com/niconalysis/corinthians)"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    esperas = [5, 15, 30, 60]
+    for tentativa in range(len(esperas) + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as erro:
+            if erro.code < 500 or tentativa == len(esperas):
+                raise
+            motivo = f"HTTP {erro.code}"
+        except (urllib.error.URLError, TimeoutError) as erro:
+            if tentativa == len(esperas):
+                raise
+            motivo = str(erro)
+        print(f"{motivo} em {url}; nova tentativa em {esperas[tentativa]}s", flush=True)
+        time.sleep(esperas[tentativa])
 
 
 def partidas_encerradas(desde):

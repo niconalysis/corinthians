@@ -1,5 +1,6 @@
 id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascimento,altura_cm,pe_preferido,valor_mercado_eur,imagem_url,fontes
 101504,Vágner Love,1984-06-11,Rio de Janeiro,RJ,Brasil,172,Direito,1500000.0,https://img.a.transfermarkt.technology/portrait/big/18829-1588240175.jpg?lm=1,legado (coleta manual até fev/2026)
+102449,Vilson,1988-04-03,São Gonçalo,RJ,Brasil,188,,,,"agente (nascimento conferido com a ESPN; en.wikipedia diz 1989; altura 188 na pt.wikipedia e na ESPN, 189 na en.wikipedia): https://pt.wikipedia.org/wiki/Vilson_Xavier_de_Menezes_J%C3%BAnior; https://en.wikipedia.org/wiki/Vilson_(footballer,_born_1989)"
 103641,Edu Dracena,1981-05-18,Dracena,SP,Brasil,187,Direito,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Edu_Dracena; https://www.11v11.com/players/edu-dracena-19957/; https://www.sportsmole.co.uk/people/edu-dracena/; https://www.fmscout.com/player/301840/edu-dracena.html
 105781,Giuliano,1990-05-31,Curitiba,PR,Brasil,172,Direito,3100000.0,https://img.a.transfermarkt.technology/portrait/big/54375-1706143918.jpg?lm=1,legado (coleta manual até fev/2026)
 105957,Nicolás Lodeiro,1989-03-21,Paysandú,,Uruguai,174,Esquerdo,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Nicol%C3%A1s_Lodeiro; https://www.fotmob.com
@@ -29,6 +30,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 147292,Paulo Roberto,1987-03-06,Lavras,MG,Brasil,175,,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Paulo_Roberto_(footballer,_born_1987)"
 148189,André Carrillo,1991-06-14,Lima,,Peru,180,Direito,2500000.0,https://img.a.transfermarkt.technology/portrait/big/135057-1698420514.JPG?lm=1,legado (coleta manual até fev/2026)
 148775,Mauro Boselli,1985-05-22,Buenos Aires,,Argentina,181,Direito,1800000.0,https://img.a.transfermarkt.technology/portrait/big/40822-1425462626.jpg?lm=1,legado (coleta manual até fev/2026)
+148971,André,1990-09-27,Cabo Frio,RJ,Brasil,184,,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Andr%C3%A9_Felipe; https://www.galodigital.com.br/enciclopedia/Andr%C3%A9_Felipe_Ribeiro_de_Souza
 153938,Cristian,1983-06-25,Belo Horizonte,MG,Brasil,183,Direito,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Cristian_Baroni
 154662,Elias,1985-05-16,São Paulo,SP,Brasil,173,Direito,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Elias_(footballer,_born_1985)"
 155204,Guilherme,1991-04-05,Santo André,SP,Brasil,178,,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Guilherme_Torres; https://www.livesoccertv.com/fr/player/guilherme/87646/
@@ -73,6 +75,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 196879,Alex Santana,1995-05-13,Atibaia,SP,Brasil,182,Direito,2000000.0,https://img.a.transfermarkt.technology/portrait/big/219835-1622913468.png?lm=1,legado (coleta manual até fev/2026)
 197049,Stiven Mendoza,1992-06-27,Palmira,,Colômbia,171,Esquerdo,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Stiven_Mendoza; https://www.sportskeeda.com/player/john-stiven-mendoza; https://www.thesportsdb.com/player/34168123-stiven-mendoza
 197533,Yony González,1994-07-11,Medellín,,Colômbia,184,Direito,800000.0,https://img.a.transfermarkt.technology/portrait/big/262474-1720884797.jpg?lm=1,legado (coleta manual até fev/2026)
+198341,Lincom,1984-02-17,Camapuã,MS,Brasil,,,,,"agente (nascimento conferido com a ESPN; cidade na en.wikipedia e em trecho de busca da FPF; altura 1,93 só na Wikipedia): https://en.wikipedia.org/wiki/Lincom"
 198346,Richard,1994-02-18,Campinas,SP,Brasil,191,Direito,900000.0,https://img.a.transfermarkt.technology/portrait/big/530737-1724671365.jpg?lm=1,legado (coleta manual até fev/2026)
 198350,Moisés,1995-03-11,São Paulo,SP,Brasil,183,,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Mois%C3%A9s_(footballer,_born_1995)"
 198389,Clayson,1995-03-19,Botucatu,SP,Brasil,166,Esquerdo,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Clayson_(footballer); https://www.fussballtransfers.com/spieler/clayson-henrique-da-silva-vieira/; https://www.aiscore.com/pt/player-clayson/l6kegipl92hl75d
@@ -108,6 +111,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 216098,Matheus Pereira,1998-02-25,São Paulo,SP,Brasil,183,Esquerdo,1200000.0,https://img.a.transfermarkt.technology/portrait/big/323934-1463480335.jpg?lm=1,legado (coleta manual até fev/2026)
 216970,Marciel,1995-03-08,Porto Alegre,RS,Brasil,186,,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Marciel_(footballer,_born_1995)"
 222200,André Luis,1997-04-21,Pouso Alegre,MG,Brasil,179,Esquerdo,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Andr%C3%A9_Luis_(footballer,_born_1997)"
+222635,Caíque,1995-06-03,São Paulo,SP,Brasil,186,,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Ca%C3%ADque_Fran%C3%A7a; https://www.meusport.com/jogador/caique-franca/
 223437,Allan,1997-03-03,Araçatuba,SP,Brasil,172,Esquerdo,,,agente: pt.wikipedia.org/wiki/Allan_(futebolista); ogol.com.br/jogador/allan/470840; ESPN
 223782,Everaldo,1994-05-28,Olinda,PE,Brasil,172,Direito,100000.0,https://img.a.transfermarkt.technology/portrait/big/388397-1558620681.jpg?lm=1,legado (coleta manual até fev/2026)
 224335,Ángelo Araos,1997-01-06,Antofagasta,,Chile,180,Direito,4000000.0,https://img.a.transfermarkt.technology/portrait/big/403148-1532420513.jpg?lm=1,legado (coleta manual até fev/2026)
@@ -127,6 +131,7 @@ id_jogador,nome,data_nascimento,cidade_nascimento,estado_nascimento,pais_nascime
 240557,Charles,1996-06-19,Santiago,RS,Brasil,187,Direito,600000.0,https://img.a.transfermarkt.technology/portrait/big/486078-1580200410.jpg?lm=1,legado (coleta manual até fev/2026)
 243831,Bruno Melo,1992-10-26,Paracuru,CE,Brasil,183,Esquerdo,750000.0,https://img.a.transfermarkt.technology/portrait/big/538230-1597912489.jpg?lm=1,legado (coleta manual até fev/2026)
 246709,Léo Jabá,1998-08-02,São Paulo,SP,Brasil,178,,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/L%C3%A9o_Jab%C3%A1
+246711,Carlinhos,1997-02-12,Jaú,SP,Brasil,195,,,,"agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Carlinhos_(footballer,_born_1997); https://www.futeboldegoyaz.com.br/jogadores/7538/jogador; https://nifc.com.br/ex-corinthians-atacante-carlinhos-acerta-com-o-nova-iguacu/"
 249846,Janderson,1999-02-26,Barreiras,BA,Brasil,169,Direito,,https://img.a.transfermarkt.technology/portrait/big/670940-1706875516.jpg?lm=1,legado (coleta manual até fev/2026)
 250152,Mantuan,1997-08-02,,SP,Brasil,175,Direito,,,agente (nascimento conferido com a ESPN): https://en.wikipedia.org/wiki/Guilherme_Mantuan; https://us.soccerway.com/player/guilherme-mantuan/vTT5d9kr/transfers/
 250904,Gustavo Silva,1997-09-07,Curitiba,PR,Brasil,168,Direito,1500000.0,https://img.a.transfermarkt.technology/portrait/big/636314-1597994712.jpg?lm=1,legado (coleta manual até fev/2026)
